@@ -1,0 +1,13 @@
+
+
+.languageChanger{
+    padding: 0px 10px;
+    background-color: var(--cardColor);
+    grid-gap: 10px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.languageChanger i{
+    color: var(--primaryColor);
+}

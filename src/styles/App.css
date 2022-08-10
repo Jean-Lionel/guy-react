@@ -1,0 +1,34 @@
+
+body{
+    text-align: center;
+    padding: auto;  
+}
+
+.error-message{
+    font-size: 1.2rem;
+    color: red;
+}
+
+.ql-editor{
+    min-height: 100px !important;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+.sticky{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0; 
+    
+  }
+
+a{
+  text-decoration: none;
+}
+
+.title-article{
+    font-size: 16px;
+    font-weight: bold;
+    color: #CC3300;
+}
