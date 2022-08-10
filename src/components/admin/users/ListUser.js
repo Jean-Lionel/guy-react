@@ -15,14 +15,18 @@ const ListUser = () => {
     const history = useHistory();
     const [searchQuery, setSearchQuery] = useState("");
     let [listUser, setLlistUser] = useState(null);
+    let x = filterData(searchQuery, users?.data?.data);
 
     useEffect(() => {
-        let x = filterData(searchQuery, users?.data?.data);
-        const t = x.filter(d => !d?.role.name.toLowerCase().includes('employeur'))
-        setLlistUser(t)
+        
+        if (x) {
+            const t = x.filter(d => !d?.role.name.toLowerCase().includes('employeur'))
+            setLlistUser(t) 
+        }
+        
         return () => {
         };
-    }, [filterData, searchQuery,users,paginate ]);
+    },  [x]);
 
     const deleteUser = (id) => {
        
@@ -82,7 +86,7 @@ const ListUser = () => {
             </div>
         </div>
       
-        <table className="table table-hover table-sm table-responsive">
+        <table className="table table-hover table-sm table-responsive ">
             <thead className="table-dark">
                 <tr>
                     <th>ID</th>
@@ -100,14 +104,14 @@ const ListUser = () => {
                     
                     listUser && listUser.map((user, index) => (
 
-                        <tr key={index}>
+                        <tr key={index} style={{textAlign: 'left'}}>
                            
                                 <td>{index + 1}</td>
-                                <td>{user?.name}</td>
-                                <td>{user?.email}</td>
-                                <td>{user?.telephone}</td>
-                                <td>{user?.mobile}</td>
-                                <td>{user?.role?.name}</td>
+                                <td >{user?.name}</td>
+                                <td >{user?.email}</td>
+                                <td >{user?.telephone}</td>
+                                <td >{user?.mobile}</td>
+                                <td >{user?.role?.name}</td>
                             
                                 <td>
                                 <Fab size="small" color="secondary" aria-label="edit"
