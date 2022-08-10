@@ -18,6 +18,7 @@ import PrimarySearchAppBar from './component/PrimarySearchAppBar';
 import useGetConnectedUser from '../../utility/useGetConnectedUser';
 import useMenuRoutes from "./menu/useMenuRoutes"
 import RouterLinkComponent from './menu/RouterLinkComponent';
+import LanguageChanger from '../language_changer/language_changer';
 
 const settings = ['Profile'];
 
@@ -38,7 +39,7 @@ const ResponsiveAppBar = () => {
   const {routes} = useMenuRoutes();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
- // const [activeTab, setActiveTab] = React.useState("home");
+  const [activeTab, setActiveTab] = React.useState("home");
   const { userConnected } = useGetConnectedUser();
   
   const handleOpenNavMenu = (event) => {
@@ -243,6 +244,7 @@ const ResponsiveAppBar = () => {
               </MenuItem>
             </Menu>
           </Box>
+          <LanguageChanger />
         </Toolbar>
       </Container>
     </AppBar>
