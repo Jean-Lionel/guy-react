@@ -2,7 +2,6 @@ import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination
 
 const AnnonceLineShow = () => {
     let { data: articles } = useFetchDataWithPagination("annonces");
-
     const getResumeInfo = (strInputCode) => {
         const cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
         

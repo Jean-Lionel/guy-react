@@ -1,10 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import logo from "../asset/img/onpr_logo.jpg"
-import embleme from "../asset/img/langfr-200px-Blason_du_Burundi.svg.png"
 import { Grid, Avatar } from '@mui/material';
 import LanguageChanger from '../components/language_changer/language_changer';
 import { useSelector } from 'react-redux';

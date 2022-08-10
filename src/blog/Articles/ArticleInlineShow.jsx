@@ -1,7 +1,13 @@
+import { useSelector } from "react-redux";
 import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
 const ArticleInlineShow = () => {
     let { data: articles } = useFetchDataWithPagination("articles");
+
+    const { currentLanguage } = useSelector((storeOf) => {
+        return { currentLanguage: storeOf.nisys.currentLanguage };
+      })
+    
 
     const getResumeInfo = (strInputCode) => {
         const cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
@@ -11,6 +17,7 @@ const ArticleInlineShow = () => {
     let articlesList = articles?.data?.data
 
     return (<div>
+   
         {articlesList && articlesList.map(article => {
             return <div key={article.id} className="row mb-1">
                 <div className="col-md-3">
@@ -20,10 +27,25 @@ const ArticleInlineShow = () => {
                  </div>
                 
                 <div className={article.image? 'col-md-9' : 'col-md-12' }>
-                <h6 className="title-article">{article.title}</h6>
-                    <p style={{ textAlign: 'justify' }}>{getResumeInfo(article.body)}</p>
+                    <h6 className="title-article">
+                    
+                        {currentLanguage.code === 'en'
+                            ? (article.title_en ?? article.title ) : article.title  
+                        }
+                    
+                    </h6>
+                    <p style={{ textAlign: 'justify' }}>{
+                        currentLanguage.code === 'en' ?
+                            getResumeInfo(article.body_en ? article.body_en : article.body) : 
+                            getResumeInfo(article.body ? article.body : article.body_en)
+                    }
+                    </p>
                     <div style={{ textAlign: "right"}}>
-                        <a href={`/detail/${article.id}`} className="btn btn-link">Lire plus</a>
+                        <a href={`/detail/${article.id}`} className="btn btn-link">
+
+                        {currentLanguage.code === 'en' ? "Read More" : "Lire plus"}
+                            
+                           </a>
                     </div>
                 </div>
             </div>

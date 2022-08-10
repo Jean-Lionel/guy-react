@@ -3,9 +3,7 @@ import { Link } from "react-router-dom"
 import { Box, Avatar, LinearProgress } from "@mui/material";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
-import LanguageChanger from '../../language_changer/language_changer';
 import { useSelector } from 'react-redux';
-
 
 const ArticleList = () => {
     let { data: articles, isLoading, error, refreshSearch } = useFetchDataWithPagination("articles");
@@ -146,13 +144,10 @@ const ArticleList = () => {
                 <h1>{titre.title[currentLanguage.code]}</h1>
                 {arts.map((e) => {
                     return(
-                    <>
+                    <div key={e.key}>
                     {articlesList && articlesList.map((article, index) => (
                         true && <tr key={index}>
                            
-                           
-
-                         
                             <td>{article.title}</td>
 
                             <td>{article.updated_at}</td>
@@ -165,7 +160,7 @@ const ArticleList = () => {
 
                     ))}
                       
-                    </>
+                    </div>
                     )})} 
             </div>
         </Box>
