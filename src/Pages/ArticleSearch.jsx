@@ -48,7 +48,6 @@ const ArticleSearch = () => {
                             <Box>
                   <h4>{
                     currentLanguage.code === 'en' ?
-                      
                     contenu.title_en  : contenu.title
                   }</h4>
                                 <ReactQuill
