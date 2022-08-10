@@ -23,7 +23,7 @@ const AddArticle = () => {
         data.append("body", body)
         data.append("image", selectedFile)
 
-        axios.post("articles/", 
+        axios.post("articles", 
             data,
             {
                 headers: {

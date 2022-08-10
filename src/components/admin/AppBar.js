@@ -24,7 +24,8 @@ const settings = ['Profile'];
 
 
 function LinkRoute({ route, handleCloseNavMenu}) {
-  return <>
+  return
+  <>
   <Link to={route.path} key={route.name}  underline="none">
                         <MenuItem key={route.name} onClick={handleCloseNavMenu}>
                           {route.icon}
