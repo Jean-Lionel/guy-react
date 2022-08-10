@@ -12,6 +12,7 @@ import useFetchDataWithPagination from "../utility/useFetchDataWithPagination";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import MainFeaturedPost from "../blog/MainFeaturedPost";
+import { useSelector } from "react-redux";
 
 const theme = createTheme();
 const ArticleSearch = () => {
@@ -19,7 +20,9 @@ const ArticleSearch = () => {
     const { id } = useParams();
     const { data } = useFetchDataWithPagination("admin_contents/" + id);
     const [contenu, setContenu] = useState(null);
-
+    const { currentLanguage } = useSelector((storeOf) => {
+      return { currentLanguage: storeOf.nisys.currentLanguage };
+    })
     useEffect(() => {
         if (data?.data) {
             setContenu(data?.data)
@@ -43,9 +46,16 @@ const ArticleSearch = () => {
 
                         {contenu && (
                             <Box>
-                                <h4>{contenu?.title}</h4>
+                  <h4>{
+                    currentLanguage.code === 'en' ?
+                      
+                    contenu.title_en  : contenu.title
+                  }</h4>
                                 <ReactQuill
-                                        value={contenu.description}
+                    value={
+                      currentLanguage.code === 'en' ?
+                      contenu.description_en: contenu.description
+                    }
                                         readOnly={true}
                                         modules = {{
                                             toolbar : false,
