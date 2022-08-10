@@ -5,8 +5,7 @@ const ArticleInlineShow = () => {
 
     const getResumeInfo = (strInputCode) => {
         const cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
-        
-        return cleanText.substring(0, 300) + " ....";
+         return cleanText.substring(0, 300) + " ....";
     }
     
     let articlesList = articles?.data?.data
@@ -15,10 +14,8 @@ const ArticleInlineShow = () => {
         {articlesList && articlesList.map(article => {
             return <div key={article.id} className="row mb-1">
                 <div className="col-md-3">
-                {article.image && (
-                    
+                {article.image && ( 
                     <img src={article.image_source_url} alt={article.title}  className="img-responsive img-fluid"/>
-
                     )}
                  </div>
                 

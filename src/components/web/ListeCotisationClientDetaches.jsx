@@ -33,8 +33,6 @@ const columns = [
     },
 ];
 
-
-
 const ListeCotisationClientDetaches = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState('');

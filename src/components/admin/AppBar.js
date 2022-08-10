@@ -24,15 +24,15 @@ const settings = ['Profile'];
 
 
 function LinkRoute({ route, handleCloseNavMenu}) {
-  return
-  <>
-  <Link to={route.path} key={route.name}  underline="none">
+  return (
+    <Link to={route.path} key={route.name}  underline="none">
                         <MenuItem key={route.name} onClick={handleCloseNavMenu}>
                           {route.icon}
                           <Typography textAlign="center">{route.name}</Typography>
                         </MenuItem>
                       </Link>
-  </>
+  )
+
 }
 
 
@@ -40,7 +40,7 @@ const ResponsiveAppBar = () => {
   const {routes} = useMenuRoutes();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [activeTab, setActiveTab] = React.useState("home");
+  //const [activeTab, setActiveTab] = React.useState("home");
   const { userConnected } = useGetConnectedUser();
   
   const handleOpenNavMenu = (event) => {

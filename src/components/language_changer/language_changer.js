@@ -12,7 +12,7 @@ class LanguageChanger extends React.Component {
             {/* <i className='fa fa-language' /> */}
             <select onChange={(event) => {this.changeLanguage(event.target.value)}}>
                 {[...new Internationalisation().languages].map((e, i) => {
-                    return <option key={i} value={e.code} selected={e.code === this.props.currentLanguage.code}>{e.flag} {e[`${this.props.currentLanguage.code}`]}</option>
+                    return <option key={i} value={e.code} defaultValue={e.code === this.props.currentLanguage.code}>{e.flag} {e[`${this.props.currentLanguage.code}`]}</option>
                 })}
             </select>
         </div>

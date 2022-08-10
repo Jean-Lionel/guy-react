@@ -7,7 +7,7 @@ import nisys_store from './logic/nisys_store';
 axios.defaults.baseURL = 'http://localhost:8000/api/';
 //axios.defaults.baseURL = 'http://test.aiph.bi/api';
 //axios.defaults.baseURL = 'http://192.168.1.2:8000/api';
-axios.defaults.baseURL = 'http://app.onpr.bi/onpr_api/public/api';
+//axios.defaults.baseURL = 'http://app.onpr.bi/onpr_api/public/api';
 //http://192.168.1.33:8000/api/articles
 //axios.defaults.baseURL = 'https://onprapi.herokuapp.com/api';
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';

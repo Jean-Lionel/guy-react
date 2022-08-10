@@ -17,7 +17,9 @@ const ListUser = () => {
     let [listUser, setLlistUser] = useState(null);
 
     useEffect(() => {
-        setLlistUser(filterData(searchQuery,users?.data?.data))
+        let x = filterData(searchQuery, users?.data?.data);
+        const t = x.filter(d => !d?.role.name.toLowerCase().includes('employeur'))
+        setLlistUser(t)
         return () => {
         };
     }, [filterData, searchQuery,users,paginate ]);
@@ -42,6 +44,7 @@ const ListUser = () => {
         }
         
     }
+
         
     return (<Box sx={{
         m: 1,
@@ -92,14 +95,14 @@ const ListUser = () => {
                 </tr>
             </thead>
             <tbody>
-            {
+               
+                {
+                    
                     listUser && listUser.map((user, index) => (
 
                         <tr key={index}>
-                            {(user.role && !(user?.role.name.toLowerCase().includes('employeur'))) && (
-                                
-                                <>
-                                <td>{user?.id}</td>
+                           
+                                <td>{index + 1}</td>
                                 <td>{user?.name}</td>
                                 <td>{user?.email}</td>
                                 <td>{user?.telephone}</td>
@@ -115,9 +118,6 @@ const ListUser = () => {
                                         <DesktopAccessDisabledIcon />
                                     </Fab>
                                 </td>
-                            </>
-
-                            )}
                         </tr>
                     
                     
