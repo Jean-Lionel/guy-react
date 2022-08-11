@@ -7,7 +7,7 @@ const GoogleMap = () => {
         width="100%"
         height="200"
         style={{ border: "0" }}
-        allowfullscreen=""
+        allowFullScreen={ true}
         loading="lazy"
       ></iframe>
 

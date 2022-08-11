@@ -98,7 +98,6 @@ export default function Header(props) {
 
           {!section?.isId && <Link
             color="inherit"
-            noWrap
             key={section.title[currentLanguage.code]}
             variant="body2"
             href={section.url}

@@ -45,11 +45,11 @@ const FormulaireDeclaration = () => {
         setVictime_telephone("");
         setVictime_fonction("");
         setFile_name_1("");
-        setFile_justification_1("");
+        setFile_justification_1(null);
         setFile_name_2("");
-        setFile_justification_2("");
+        setFile_justification_2(null);
         setFile_name_3("");
-        setFile_justification_3("");
+        setFile_justification_3(null);
         setNomDeclarant("");
         setMotif_declaration("");
         setDate_declaration("");
@@ -271,7 +271,7 @@ const FormulaireDeclaration = () => {
 
               <Grid item md={5}>
                 <input type="file" accept=".pdf"
-                value={file_justification_1}
+          
               onChange={(e) => setFile_justification_1(e.target.files[0])}
                   className="form-control form-control-sm"
                   
@@ -333,13 +333,13 @@ const FormulaireDeclaration = () => {
               <p className="is-invalid" style={{background: "red"}}>
               Vos informations n'ont pas été validées
               </p>
-              <p>
+              {/* <p>
                 {JSON.stringify(response)}
-              </p>
+              </p> */}
             </Alert>
           </>}
    
-          {response && response.data.success && 
+          {!error && response && response.data.success && 
             <Box sx={{ 
               background: "green",
               width: "90%",

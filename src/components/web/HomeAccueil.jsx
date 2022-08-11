@@ -64,12 +64,12 @@ const HomeAccueil = () => {
         <h1>  {titre.title[currentLanguage.code]}</h1>
 
         <main style={{ textAlign: 'justify' }}>
-            {paragraphes.map((e) => {
+            {paragraphes.map((e,index) => {
                 return (
-                    <>
-                        <p>{e.par[currentLanguage.code]}</p>
+                    <p key={index}>
+                        {e.par[currentLanguage.code]}
 
-                    </>)
+                    </p>)
             })}
         </main>
 

@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import L from "react-router-dom/Link"
+import { Link} from "react-router-dom"
 import useFetchDataWithPagination from '../utility/useFetchDataWithPagination';
 
 function MainFeaturedPost(props) {
@@ -59,13 +59,13 @@ function MainFeaturedPost(props) {
             Office National des Pensions et Risques Professionnels des      
               Fonctionnaires, des Magistrats et des Agents de l’Ordre Judiciaire
             </Typography>
-            <L variant="subtitle1" to="/" style={{
+            <Link variant="subtitle1" to="/" style={{
               color: '#fff',
               textDecoration: 'none',
               cursor: 'pointer',
             }}>
               www.onpr.bi            
-              </L>
+              </Link>
           </Box>
         </Grid>
       </Grid>
