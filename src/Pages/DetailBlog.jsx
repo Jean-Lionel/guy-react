@@ -6,15 +6,18 @@ import useFetchData from "../utility/useFecthData";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import LeftSideCard from "../blog/components/LeftSideCard";
+import { useSelector } from "react-redux";
 
 const DetailBlog = () => {
     const { id } = useParams();
     const { data, isLoading } = useFetchData("articles/" + id);
-
     const { data: articles } = useFetchData("toutArticles");
-
     const [artcle, setArtcle] = useState(null);
     const [linkArtcles, setLinkArtcles] = useState(null);
+
+    const { currentLanguage } = useSelector((storeOf) => {
+        return { currentLanguage: storeOf.nisys.currentLanguage };
+    });
 
     useEffect(() => {
             if(articles?.data){
@@ -44,7 +47,11 @@ const DetailBlog = () => {
                     {artcle && (
                     <Grid item md={12}>
                         <h1 className="title-article">
-                            {artcle.title}
+                                        {
+                                            currentLanguage.code === 'en' ?
+                                                (artcle.title_en ? artcle.title_en : artcle.title) : artcle.title
+                                           
+                                        }
                                     </h1>
                                     
                                     {artcle.image && (
@@ -55,7 +62,11 @@ const DetailBlog = () => {
                        
 
                         <ReactQuill
-                            value={artcle.body}
+                                        value={
+                                            currentLanguage.code === 'en' ?
+                                                (artcle.body_en ? artcle.body_en : artcle.body) : artcle.body
+                                            
+                                        }
                                 readOnly={true}
                                 modules = {{
                                     toolbar : false,
