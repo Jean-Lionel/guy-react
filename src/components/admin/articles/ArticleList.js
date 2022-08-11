@@ -140,29 +140,7 @@ const ArticleList = () => {
                     </tbody>
                 </table>
             </div>
-            <div>
-                <h1>{titre.title[currentLanguage.code]}</h1>
-                {arts.map((e) => {
-                    return(
-                    <div key={e.key}>
-                    {articlesList && articlesList.map((article, index) => (
-                        true && <tr key={index}>
-                           
-                            <td>{article.title}</td>
-
-                            <td>{article.updated_at}</td>
-                            <td>
-                                <Link to={"/admin/articles/" + article.id}>
-                                    Afficher
-                                </Link>
-                            </td>
-                        </tr>
-
-                    ))}
-                      
-                    </div>
-                    )})} 
-            </div>
+           
         </Box>
     );
 }
