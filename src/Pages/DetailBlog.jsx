@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import LeftSideCard from "../blog/components/LeftSideCard";
 import { useSelector } from "react-redux";
+import RightSideCard from "../blog/components/RightSideCard";
 
 const DetailBlog = () => {
     const { id } = useParams();
@@ -89,13 +90,26 @@ const DetailBlog = () => {
             </Box>  
             </Grid>
             <Grid item xs={12} md={3}>
-                    {/* <RightSideCard /> */}
+                     {/* <RightSideCard /> */}
                     <>
-                        <h4>Autres informations</h4>
+                        <h4>
+                            {
+                                currentLanguage.code === 'en' ?
+                                    "others information" : "autres informations"
+                            }
+                            
+                        </h4>
                         <ul>
                             {linkArtcles && linkArtcles.map(article => {
                                 return <li key={article.id} style={{ textAlign: 'left'}}>
-                                    <a href={`/detail/${article.id}`}>{article.title.toLowerCase()}</a>
+                                    <a href={`/detail/${article.id}`}>
+                                        {
+                                            currentLanguage.code === 'en' ?
+                                                (artcle.title_en ?? artcle.title)?.toLowerCase() :
+                                                article.title.toLowerCase()
+                                                
+                                           
+                                        }</a>
                                 </li>
                             }
                             )}  
