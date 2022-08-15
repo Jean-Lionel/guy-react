@@ -10,9 +10,9 @@ class LanguageChanger extends React.Component {
     render() {
         return <div className='languageChanger flex'>
             {/* <i className='fa fa-language' /> */}
-            <select onChange={(event) => {this.changeLanguage(event.target.value)}}>
+            <select onChange={(event) => {this.changeLanguage(event.target.value)}} defaultValue={this.props.currentLanguage.code}>
                 {[...new Internationalisation().languages].map((e, i) => {
-                    return <option key={i} value={e.code} defaultValue={e.code === this.props.currentLanguage.code}>{e.flag} {e[`${this.props.currentLanguage.code}`]}</option>
+                    return <option key={i} value={e.code}>{e.flag} {e[`${this.props.currentLanguage.code}`]}</option>
                 })}
             </select>
         </div>
