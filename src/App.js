@@ -4,21 +4,45 @@ import "./styles/pagination.css";
 
 import {
   BrowserRouter as Router,
-  
+
 } from "react-router-dom";
 import RouteComponent from "./route/RouteComponent";
 import "./styles/App.css"
 
+import React, { Component } from 'react'
+import ManagerRepo from './repositories/managerRepo';
+import { copyWith } from './logic/nisys_slice';
+import { connect } from 'react-redux';
 
-function App() {
-  
-  return (
-    <Router>
-      <div className="App">
-        <RouteComponent/>
-      </div>
-    </Router>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    this.onAppStart();
 }
 
-export default App;
+  render() {
+    return <Router>
+      <div className="App">
+        <RouteComponent />
+      </div>
+    </Router>
+  }
+
+
+  onAppStart() {
+    try {
+      const managerRepo = new ManagerRepo();
+      var settings = managerRepo.loadAppSettings();
+      this.props.dispatch(copyWith({
+        currentLanguage: settings.currentLanguage,
+      }));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+}
+
+const mapStateToProps = (StoreOf) => ({});
+
+export default connect(mapStateToProps)(App);
+

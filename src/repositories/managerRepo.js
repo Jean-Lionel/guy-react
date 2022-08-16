@@ -10,4 +10,12 @@ export default class ManagerRepo {
         internationalisation.onLanguageChanged(language);
         return internationalisation.currentLanguage;
     }
+
+    loadAppSettings() {
+        const localStorageServices = new LocalStorageServices();
+        var currentLanguage = localStorageServices.getCurrentLanguage();
+        return {
+            'currentLanguage': new Internationalisation().getLanguageByCode(currentLanguage),
+        };
+    }
 }
