@@ -10,7 +10,22 @@ const ArticleInlineShow = () => {
     
 
     const getResumeInfo = (strInputCode) => {
-        const cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
+        let cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
+        cleanText = cleanText.replace(/&nbsp;/gi, " ");
+        cleanText = cleanText.replace(/&amp;/gi, "&");
+        cleanText = cleanText.replace(/&quot;/gi, '"');
+        cleanText = cleanText.replace(/&#039;/gi, "'");
+        cleanText = cleanText.replace(/&oelig;/gi, "oe");
+        cleanText = cleanText.replace(/&#xfc;/gi, "ü");
+        cleanText = cleanText.replace(/&#xdf;/gi, "ß");
+        cleanText = cleanText.replace(/&auml;/gi, "ä");
+        cleanText = cleanText.replace(/&ouml;/gi, "ö");
+        cleanText = cleanText.replace(/&uuml;/gi, "ü");
+        cleanText = cleanText.replace(/&Auml;/gi, "Ä");
+        cleanText = cleanText.replace(/&Ouml;/gi, "Ö");
+        cleanText = cleanText.replace(/&Uuml;/gi, "Ü");
+        cleanText = cleanText.replace(/&szlig;/gi, "ß");
+
          return cleanText.substring(0, 300) + " ....";
     }
     
