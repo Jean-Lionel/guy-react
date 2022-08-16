@@ -11,7 +11,7 @@ axios.defaults.baseURL = 'http://app.onpr.bi/onpr_api/public/api';
 //axios.defaults.baseURL = 'http://192.168.1.2:8000/api';
 //axios.defaults.baseURL = 'http://app.onpr.bi/onpr_api/public/api';
 //http://192.168.1.33:8000/api/articles
-//axios.defaults.baseURL = 'https://onprapi.herokuapp.com/api';
+
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 //axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
