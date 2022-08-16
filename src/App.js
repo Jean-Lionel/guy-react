@@ -33,6 +33,7 @@ class App extends Component {
     try {
       const managerRepo = new ManagerRepo();
       var settings = managerRepo.loadAppSettings();
+      console.log("Initial settings", settings);
       this.props.dispatch(copyWith({
         currentLanguage: settings.currentLanguage,
       }));
