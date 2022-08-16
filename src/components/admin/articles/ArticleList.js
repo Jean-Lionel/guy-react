@@ -6,7 +6,7 @@ import usePostData from "../../../utility/usePostData";
 import { useSelector } from 'react-redux';
 
 const ArticleList = () => {
-    let { data: articles, isLoading, error, refreshSearch } = useFetchDataWithPagination("articles");
+    let { data: articles, isLoading, error, refreshSearch, paginate } = useFetchDataWithPagination("articles");
     let articlesList = articles?.data?.data
     const { submitData } = usePostData()
 
@@ -102,9 +102,7 @@ const ArticleList = () => {
                             <th>
                                 Date de création
                             </th>
-                            <th>
-                                Date de modification
-                            </th>
+                           
                             <th>
                                 Action
                             </th>
@@ -123,8 +121,8 @@ const ArticleList = () => {
 
                                 </td>
                                 <td>{article.title}</td>
-                                <td>{article.created_at}</td>
-                                <td>{article.updated_at}</td>
+                                <td>{ new Date(article.created_at).toLocaleString()}</td>
+                                
                                 <td>
                                     <button className="btn btn-danger" onClick={(e) => deleteArcticle(article.id)}>
                                         Supprimer
@@ -139,6 +137,8 @@ const ArticleList = () => {
 
                     </tbody>
                 </table>
+
+                {paginate()}
             </div>
            
         </Box>

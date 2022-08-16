@@ -38,7 +38,7 @@ const useFetchDataWithPagination = (url) => {
        
         const abortConnection = new AbortController();
         const token = localStorage.getItem('token');
-        axios.get(url + "?page="+ selected,{
+        axios.get(url + "?page="+ (selected*1 + 1),{
             signal : abortConnection.signal,
             headers :{
                 Authorization : 'Bearer ' +token

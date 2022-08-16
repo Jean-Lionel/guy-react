@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
 const ArticleInlineShow = () => {
-    let { data: articles } = useFetchDataWithPagination("articles");
+    let { data: articles, paginate } = useFetchDataWithPagination("articles");
 
     const { currentLanguage } = useSelector((storeOf) => {
         return { currentLanguage: storeOf.nisys.currentLanguage };
@@ -51,6 +51,7 @@ const ArticleInlineShow = () => {
             </div>
 
         })}
+        <div>{paginate()}</div>
     </div>);
 }
  
