@@ -11,11 +11,16 @@ function RightSideCard(props) {
   return (
     <Grid item xs={12} md={12}>
       <CardActionArea component="a" href="#">
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{
+          display: 'flex',
+          height: '800px',
+          overflowY: 'scroll'
+
+        }}>
           <CardContent sx={{ flex: 1 }}>
-            <RightSideTwitter/>
+            <RightSideTwitter />
           </CardContent>
-          
+
         </Card>
       </CardActionArea>
     </Grid>
