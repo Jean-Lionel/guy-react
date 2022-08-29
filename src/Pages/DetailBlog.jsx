@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import LeftSideCard from "../blog/components/LeftSideCard";
 import { useSelector } from "react-redux";
-import RightSideCard from "../blog/components/RightSideCard";
 
 const DetailBlog = () => {
   const { id } = useParams();
@@ -102,7 +101,7 @@ const DetailBlog = () => {
                   linkArtcles.map((article) => {
                     return (
                       <li key={article.id} style={{ textAlign: "left" }}>
-                        <a href={`/detail/${article.id}`}>
+                        <a href={`/detail/${ article.id }`}>
                           {currentLanguage.code === "en"
                             ? article.title_en
                               ? article.title_en

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Box, Avatar, LinearProgress } from "@mui/material";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
-import { useSelector } from 'react-redux';
+
 
 const ArticleList = () => {
     let { data: articles, isLoading, error, refreshSearch, paginate } = useFetchDataWithPagination("articles");
@@ -18,42 +18,6 @@ const ArticleList = () => {
             refreshSearch()
         }
     }
-
-    const showDetails = (id) => {
-        window.location.href = "/admin/articles/" + id
-    }
-
-    const { currentLanguage } = useSelector((storeOf) => {
-        return { currentLanguage: storeOf.nisys.currentLanguage };
-    })
-
-    const titre = {
-        title: {
-            fr: ' tester la traduction de l article',
-            en: 'The test of translation article'
-        }
-    };
-
-    const arts = [
-        {
-          title: {
-            fr: 'bonjour',
-
-            en: 'good morning'
-          },
-      
-          corps: [
-           
-            {
-              text: {
-                fr: '',
-                en: ''
-              },
-            },
-          
-          ]
-        },
-      ]
 
 
 
@@ -102,7 +66,7 @@ const ArticleList = () => {
                             <th>
                                 Date de création
                             </th>
-                           
+
                             <th>
                                 Action
                             </th>
@@ -121,8 +85,8 @@ const ArticleList = () => {
 
                                 </td>
                                 <td>{article.title}</td>
-                                <td>{ new Date(article.created_at).toLocaleString()}</td>
-                                
+                                <td>{new Date(article.created_at).toLocaleString()}</td>
+
                                 <td>
                                     <button className="btn btn-danger" onClick={(e) => deleteArcticle(article.id)}>
                                         Supprimer
@@ -140,7 +104,7 @@ const ArticleList = () => {
 
                 {paginate()}
             </div>
-           
+
         </Box>
     );
 }

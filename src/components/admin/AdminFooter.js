@@ -1,5 +1,4 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -23,11 +22,11 @@ export default function AdminFooter() {
     <Box
       sx={{
         position: "fixed",
-        
-        width: "100%",    
+
+        width: "100%",
       }}
     >
-     
+
       <Box
         component="footer"
         sx={{
@@ -41,7 +40,7 @@ export default function AdminFooter() {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-          Office National des Pensions et Risques Professionnels 
+            Office National des Pensions et Risques Professionnels
           </Typography>
           <Copyright />
         </Container>

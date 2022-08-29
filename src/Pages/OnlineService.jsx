@@ -1,7 +1,5 @@
 import { Box, Grid } from "@mui/material";
 import BasePage from "../BasePage";
-import declaration_accident_de_travail_model_A2 from "../asset/pdf/declaration_accident_de_travail_model_A2pdf.pdf";
-import declaration_accident_de_travail from "../asset/pdf/declaration_accident_de_travail.pdf";
 import useFetchDataWithPagination from "../utility/useFetchDataWithPagination";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -19,7 +17,7 @@ const OnlineService = () => {
       setgroupeFormulaire(data?.data);
     }
 
-    return () => {};
+    return () => { };
   }, [data]);
 
   const styleUl = {

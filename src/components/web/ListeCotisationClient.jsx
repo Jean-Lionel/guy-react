@@ -1,7 +1,7 @@
 import SearchBar from "material-ui-search-bar";
 import { useState } from "react";
 import axios from "axios";
-import { Alert, Box, Button, CssBaseline, Grid, LinearProgress } from "@mui/material";
+import { Alert, Box, CssBaseline, Grid, LinearProgress } from "@mui/material";
 import DataTable from 'react-data-table-component';
 
 
@@ -57,10 +57,10 @@ const ListeCotisationClient = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get(`cotisations_afiliers/${matricule}`);
+            const response = await axios.get(`cotisations_afiliers/${ matricule }`);
             const json = await response.data;
             setData(json);
-            if(json.length === 0){
+            if (json.length === 0) {
                 setError("Aucun résultat");
             }
         } catch (error) {
@@ -69,15 +69,15 @@ const ListeCotisationClient = () => {
         setLoading(false);
     };
 
-  
-    return ( <div>
-      
+
+    return (<div>
+
         <div className="row">
-                <SearchBar onChange={setMatricule}
+            <SearchBar onChange={setMatricule}
                 size="small"
                 onRequestSearch={searchInformation}
                 placeholder="Saisissez ici votre Numéro matricule ONPR" />
-    
+
         </div>
         <Box>
             <h6>Liste des cotisations</h6>
@@ -85,50 +85,50 @@ const ListeCotisationClient = () => {
 
         {loading && (
             <Box sx={{ width: '100%' }}>
-            <LinearProgress />
-          </Box>
-        )}
-        {error && 
-        <Alert severity="error">{error}</Alert>}
-        <div>
-        
-        {!error && Array.isArray(data)  && data.length !== 0 && (
-            <Box>
-               <Grid container spacing={2} >
-                   <Grid item xs={12}>
-                       <h6>RELEVE DES COTISATIONS DE : </h6>
-                        <CssBaseline/>
-                   </Grid>
-                     <Grid item xs={6} sx={{ 
-                         textAlign: 'left',
-                     }}>
-                        <h6>NOM ET PRENOM : {data[0]?.nom} {data[0]?.prenom}</h6>
-
-                    </Grid>
-                    <Grid item xs={6} sx={{ textAlign: 'right'}}>
-                        <h6>Matricule : {data[0]?.matricule}</h6>
-                    </Grid>
-                    <Grid item xs={6} sx={{ 
-                        textAlign: 'left',
-                    }}>
-                        <h6>NOMBRE DE MOIS TOTAL : {data.length}</h6>
-                    </Grid>
-                    <Grid item xs={6} sx={{ textAlign: 'right'}}>
-                        <h6>TOTAL DES POINTS : {nombreTotal()}</h6>
-                    </Grid>
-
-               </Grid>
-
-                    <DataTable
-                    columns={columns} 
-                    data={data}
-                    pagination={true}
-                    
-                />
+                <LinearProgress />
             </Box>
         )}
+        {error &&
+            <Alert severity="error">{error}</Alert>}
+        <div>
+
+            {!error && Array.isArray(data) && data.length !== 0 && (
+                <Box>
+                    <Grid container spacing={2} >
+                        <Grid item xs={12}>
+                            <h6>RELEVE DES COTISATIONS DE : </h6>
+                            <CssBaseline />
+                        </Grid>
+                        <Grid item xs={6} sx={{
+                            textAlign: 'left',
+                        }}>
+                            <h6>NOM ET PRENOM : {data[0]?.nom} {data[0]?.prenom}</h6>
+
+                        </Grid>
+                        <Grid item xs={6} sx={{ textAlign: 'right' }}>
+                            <h6>Matricule : {data[0]?.matricule}</h6>
+                        </Grid>
+                        <Grid item xs={6} sx={{
+                            textAlign: 'left',
+                        }}>
+                            <h6>NOMBRE DE MOIS TOTAL : {data.length}</h6>
+                        </Grid>
+                        <Grid item xs={6} sx={{ textAlign: 'right' }}>
+                            <h6>TOTAL DES POINTS : {nombreTotal()}</h6>
+                        </Grid>
+
+                    </Grid>
+
+                    <DataTable
+                        columns={columns}
+                        data={data}
+                        pagination={true}
+
+                    />
+                </Box>
+            )}
         </div>
-    </div> );
+    </div>);
 }
- 
+
 export default ListeCotisationClient;
