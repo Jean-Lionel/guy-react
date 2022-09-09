@@ -88,12 +88,17 @@ const ArticleList = () => {
                                 <td>{new Date(article.created_at).toLocaleString()}</td>
 
                                 <td>
-                                    <button className="btn btn-danger" onClick={(e) => deleteArcticle(article.id)}>
+                                    <button className="btn-link text-danger" onClick={(e) => deleteArcticle(article.id)}>
                                         Supprimer
                                     </button>
-                                    <Link to={"/admin/articles/" + article.id}>
+                                    <Link to={"/admin/articles/" + article.id} className="m-1">
                                         Afficher
                                     </Link>
+
+                                    <Link to={"/admin/articles/traductions/" + article.id} className="m-1">
+                                        Traduire en Anglais
+                                    </Link>
+
                                 </td>
                             </tr>
 
