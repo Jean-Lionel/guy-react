@@ -6,6 +6,7 @@ import BasePage from "../BasePage";
 import AddGroupe from "../blog/components/AddGroupe";
 import AddFormulaireDeclaration from "../blog/components/addgroupe/AddFormulaireDeclaration";
 import AnnonceAdd from "../components/admin/annonce/AnnonceAdd";
+import AnnonceTrasuction from "../components/admin/annonce/AnnonceTrasuction";
 import TraduireArticle from "../components/admin/articles/TraduireArticle";
 import Home from "../Home";
 import AddUserToInstution from "../Pages/AddUserToInstution";
@@ -83,6 +84,8 @@ const RouteComponent = () => {
 
       <ProtectedRoute exact path="/add-formulaire" component={AddFormulaireDeclaration} />
       <ProtectedRoute exact path="/annonce" component={Annonce} />
+
+      <ProtectedRoute exact path="/annonce-translate/:id" component={AnnonceTrasuction} />
       <ProtectedRoute exact path="/annonce-add" component={AnnonceAdd} />
     </Switch>
   );

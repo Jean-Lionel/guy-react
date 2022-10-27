@@ -19,19 +19,19 @@ const AnnonceListe = () => {
     const deleteAnnoce = (e) => {
         const response = window.confirm("êtes-vous sûr ? ")
         if (response) {
-            submitData("annonces/"+e, null, "DELETE");
+            submitData("annonces/" + e, null, "DELETE");
             refreshSearch();
         }
     }
 
-    return (<Box width={{ 
+    return (<Box width={{
         width: "90%",
         margin: "auto",
     }}>
         {isLoading && <LinearProgress color="success" />}
         <div className="row">
             <div className="col-md-8">
-            <h4> Liste des annonces </h4>
+                <h4> Liste des annonces </h4>
             </div>
             <div className="col-md-4">
                 <Link to="/annonce-add">ajouter une annonce</Link>
@@ -48,22 +48,25 @@ const AnnonceListe = () => {
             </thead>
 
             <tbody>
-                {annonces && annonces.map((annonce, index )=> (
+                {annonces && annonces.map((annonce, index) => (
                     <tr key={annonce.id}>
                         <td>{index + 1}</td>
                         <td>{annonce.title}</td>
                         <td className="d-flex flex-row">
-                           
-                            <button className="btn btn-danger btn-block btn-sm ml-2" onClick={()=>deleteAnnoce(annonce.id) }>Supprimer</button>
+
+                            <button className="btn btn-danger btn-block btn-sm ml-2" onClick={() => deleteAnnoce(annonce.id)}>Supprimer</button>
+                            <Link to={'annonce-translate/' + annonce.id}  >
+                                <button className="btn btn-info btn-sm mr-2">Traduire en anglais</button>
+                            </Link>
                         </td>
-                    </tr>     
-               ))}
+                    </tr>
+                ))}
             </tbody>
 
         </table>
 
         {paginate()}
-    </Box> );
+    </Box >);
 }
- 
+
 export default AnnonceListe;

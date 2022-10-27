@@ -1,16 +1,22 @@
 import { Alert, Box, LinearProgress } from "@mui/material";
 import { useState } from "react";
 import ReactQuill from "react-quill";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Admin from "../../../Pages/Admin";
+import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
 
-const AnnonceAdd = () => {
+const AnnonceTrasuction = () => {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const { error, submitData, isLoading } = usePostData();
     const history = useHistory();
+    const { id } = useParams();
+
+    const { data: annonce } = useFetchDataWithPagination("annonces/" + id)
+
+
     const saveData = (e) => {
         e.preventDefault();
 
@@ -19,18 +25,20 @@ const AnnonceAdd = () => {
             return false;
         }
         const x = { title, body }
-        submitData("annonces", x)
+        submitData("annonces/" + id, x, "PUT")
 
-        history.push("annonce")
+        history.push("/annonce")
     }
     return (<Admin>
+        <h5 className="text-center">Traduction de l'annonce en Anglais</h5>
+
         <Box sx={{
             width: '80%',
             margin: "auto"
         }}>
             <form action="" onSubmit={saveData} >
                 <div className="form-groupe">
-                    <label className="text-left">Titre</label>
+                    <label className="text-left">Titre : {annonce?.data?.title}</label>
                     <input type="text" className="form-control" required value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder="" />
                 </div>
 
@@ -54,4 +62,4 @@ const AnnonceAdd = () => {
     </Admin>);
 }
 
-export default AnnonceAdd;
+export default AnnonceTrasuction;
