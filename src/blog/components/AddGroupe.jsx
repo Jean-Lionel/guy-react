@@ -45,7 +45,17 @@ const AddGroupe = () => {
     }
     
     const saveTraduction = (e) => {
-        alert("Traduction en cours" + e.id)
+        e.preventDefault();
+        if(title_en.length > 0) {
+              submitData("adminheadesTraduction", {
+                title_en: title_en,
+                element_id : selectElement
+              });  
+               refreshSearch();
+               setTitle_en("")
+               setIsStraduction(false);
+              setSelectElement(0)
+        }
     }
     return (<Admin>
         <h6>Ajout un titre</h6>
