@@ -28,7 +28,6 @@ const useFetchData = (url) => {
         }).finally(() => {
             setIsLoading(false);
         })
-
         return () => abortConnection.abort()
 
     },[url])

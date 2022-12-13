@@ -14,14 +14,12 @@ import BaseLeftSideCard from './components/web/BaseLeftSideCard';
 const theme = createTheme();
 
 export default function BasePage(props ) {
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg" >
         <Header />
         <main >
-         
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <BaseLeftSideCard/>
@@ -33,7 +31,6 @@ export default function BasePage(props ) {
           {/* <BlogArticlesListe/>
           <YoutubeComponent/>
           <GoogleMap/> */}
-          
         </main>
       </Container>
       <Footer

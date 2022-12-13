@@ -15,7 +15,6 @@ import { copyWith } from './logic/nisys_slice';
 import { connect } from 'react-redux';
 
 class App extends Component {
-
   componentDidMount() {
     this.onAppStart();
 }
