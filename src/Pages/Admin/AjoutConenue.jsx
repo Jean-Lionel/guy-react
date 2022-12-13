@@ -7,6 +7,7 @@ import ReactQuill from "react-quill";
 import usePostData from "../../utility/usePostData";
 import ClearIcon from '@mui/icons-material/Clear';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { EditLocation } from "@mui/icons-material";
 
 const AjoutConenue = () => {
     const { id } = useParams();
@@ -15,8 +16,11 @@ const AjoutConenue = () => {
     const [description, setDescription] = useState("")
     const [title, setTitle] = useState("")
     const [elId, setElId] = useState(null)
-    const {  submitData } = usePostData()
-    
+    const {  submitData } = usePostData();
+
+    const [title_en, setTitle_en] = useState("")
+    const [selectElement, setSelectElement] = useState(0)
+
     useEffect(() => {
         if (data?.data) {
             setHeader(data?.data[0])
@@ -56,7 +60,21 @@ const AjoutConenue = () => {
         setElId(e.id)
         setTitle(e.title)
         setDescription(e.description)
+    }
 
+    const translateEnglish = (e)=>{
+        setSelectElement(e.id)
+        setTitle_en("");
+        //alert("English tout les champs" + e.id)
+
+        submitData("admin_contents_translate", {
+            element_id: selectElement,
+            content_en : title_en
+        })
+    }
+
+    const saveTraduction = (e) => {
+        alert(title_en)
     }
 
     return (<Admin>
@@ -75,18 +93,23 @@ const AjoutConenue = () => {
                             <ul className="list-group text-left">
                                 {groupe?.admin_contents.map((x, i) => {
                                     return <li key={i} className="list-group-item d-flex space-between" >
-                                     
                                         <span>   {x.title}</span>
-                                        <span onClick={() => removeElement(x.id)} >
+                                        <span title="Supprimer" onClick={() => removeElement(x.id)} >
                                             <ClearIcon size="small" sx={{
                                                 cursor: 'pointer',
                                                 marginLeft: '2px',
                                                 color: 'red'
                                         }} />
+                                           
                                         </span>
-                                        <span onClick={() => showElement(x)}
-                                             
-                                        >
+                                        <span title="Traduire en Anglais" onClick={() =>translateEnglish(x)}>
+                                         <EditLocation size="small" sx={{
+                                                cursor: 'pointer',
+                                                marginLeft: '2px',
+                                                color: 'green'
+                                        }} />
+                                        </span>
+                                        <span title="Afficher" onClick={() => showElement(x)}>
                                             <VisibilityIcon sx={{
                                                 cursor: 'pointer',
                                                 marginLeft: '2px',
@@ -94,6 +117,12 @@ const AjoutConenue = () => {
                                         }}
                                         />
                                         </span>
+                                        {selectElement === x.id && <p>
+                                        <p>
+                                        <input type="text" value={title_en} onChange={(e) => setTitle_en(e.target.value) } />
+                                        <button onClick={(e) => saveTraduction(e)}>Enregistrer</button>
+                                        </p>
+                                        </p>}
                                     </li>
                                 })}
                             </ul>

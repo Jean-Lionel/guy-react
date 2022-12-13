@@ -33,6 +33,7 @@ import DeclarationFormulaire from "../Pages/DeclarationFormulaire";
 import DetailBlog from "../Pages/DetailBlog";
 import EditInstution from "../Pages/EditInstution";
 import Information from "../Pages/Information";
+import InformationAdd from "../Pages/Admin/InformationAdd";
 import Login from "../Pages/Login";
 import MessageSent from "../Pages/MessageSent";
 import OnlineService from "../Pages/OnlineService";
@@ -72,6 +73,7 @@ const RouteComponent = () => {
       <ProtectedRoute exact path="/institutions/add" component={InstitutionAdd} />
       <ProtectedRoute exact path="/web" component={WebAdmin} />
       <ProtectedRoute exact path="/add-groupe" component={AddGroupe} />
+      <ProtectedRoute exact path="/information" component={InformationAdd} />
       <ProtectedRoute exact path="/ricieved-message" component={RicievedMessage} />
       <ProtectedRoute exact path="/ricieved-declaration" component={RicievedDeclaration} />
       <ProtectedRoute exact path="/ricieved-message/:id" component={RecievedMessageDetail} />

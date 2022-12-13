@@ -26,6 +26,9 @@ const AdmnistrationWeb = () => {
             <div className="m-2">
                 <Link to="/annonce" className="ml-2 d-block"><ShareIcon />  Annonce</Link>
             </div>
+            <div className="m-2">
+                <Link to="/information" className="ml-2 d-block">   Information</Link>
+            </div>
 
         </div>
 
