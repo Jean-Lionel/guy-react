@@ -8,7 +8,8 @@ import 'react-quill/dist/quill.snow.css';
 const AddArticle = () => {
 
     const [title, setTitle] = useState("");
-    const [body, setBody] = useState("")
+    const [bodyFr, setBodyFr] = useState("");
+    const [bodyEn, setBodyEn] = useState("");
     const [selectedFile, setSelectedFile] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     let history = useHistory();
@@ -20,7 +21,8 @@ const AddArticle = () => {
         const data = new FormData()
 
         data.append("title", title)
-        data.append("body", body)
+        data.append("body", bodyFr)
+        data.append("body_en", bodyEn)
         data.append("image", selectedFile)
 
         axios.post("articles",
@@ -61,20 +63,17 @@ const AddArticle = () => {
                     <InputLabel htmlFor="title"  >Titre</InputLabel>
                     <Input
                         id="title"
-
                         value={title}
                         required
                         onChange={(e) => (setTitle(e.target.value))}
                     ></Input>
 
                 </FormControl>
-
-
                 <FormControl fullWidth sx={{ m: 1 }} variant="standard">
                     <InputLabel htmlFor="body"  >Description</InputLabel>
                     <ReactQuill
-                        theme="snow" value={body}
-                        onChange={setBody}
+                        theme="snow" value={bodyFr}
+                        onChange={setBodyFr}
 
                     >
                     </ReactQuill>
