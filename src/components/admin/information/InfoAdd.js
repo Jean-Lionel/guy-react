@@ -9,7 +9,7 @@ const InfoAdd = () => {
     const [title_fr, setTitle_fr] = useState("")
     const [body_fr, setBody_fr] = useState("");
     const [body_en, setBody_en] = useState("");
-    const { submitData, finished} =usePostData();
+    const {response, submitData} =usePostData();
     
     const saveInformation = (e) => {
         e.preventDefault();
@@ -20,13 +20,11 @@ const InfoAdd = () => {
                 description_en: body_en,
                 title_fr: title_fr
                 })
-                if(finished){
                     setTitle_fr("")
+                    setTitle_en("")
                     setBody_fr("")
                     setBody_en("")
                     setBody_en("")
-                }
-
         }
     }
     return ( <Box sx={{ m:2}}>
