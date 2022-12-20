@@ -7,7 +7,7 @@ import useFetchData from "../../utility/useFecthData";
 
 const HomeAccueil = () => {
     
-    const {data, isLoading, error} = useFetchData('informations');
+    const {data} = useFetchData('informations');
     const [article, setArticle] = useState("")
     const { currentLanguage } = useSelector((storeOf) => {
         return { currentLanguage: storeOf.nisys.currentLanguage };

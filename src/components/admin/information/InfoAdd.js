@@ -9,7 +9,7 @@ const InfoAdd = () => {
     const [title_fr, setTitle_fr] = useState("")
     const [body_fr, setBody_fr] = useState("");
     const [body_en, setBody_en] = useState("");
-    const {response, submitData} =usePostData();
+    const { submitData} =usePostData();
     
     const saveInformation = (e) => {
         e.preventDefault();
