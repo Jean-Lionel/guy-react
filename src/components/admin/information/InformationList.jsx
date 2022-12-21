@@ -6,15 +6,7 @@ import usePostData from "../../../utility/usePostData";
 
 const InformationList = () => {
     const {data, refreshSearch} =useFetchDataWithPagination("informations");
-    const {submitData, finished} = usePostData()
-
-    useEffect(() => {
-        refreshSearch()
-      return () => {
-       
-      }
-    }, [finished,refreshSearch,data])
-    
+    const {submitData} = usePostData()
 
     const deleteElement = (elem) => {
         const resp = window.confirm("Are you sure you want to delete")
@@ -29,7 +21,7 @@ const InformationList = () => {
                 margin: "auto", 
             }}
         >
-        {data && <Box 
+        {data?.data && <Box 
         sx={{
 
         }}
@@ -38,7 +30,7 @@ const InformationList = () => {
             <div className="col-6">
             <h4>{data.data.title_fr}</h4>
             <ReactQuill
-            value={data.data.description_fr}
+            value={data?.data?.description_fr}
             readOnly={true}
             theme={"bubble"}
             ></ReactQuill>
@@ -47,7 +39,7 @@ const InformationList = () => {
             <div className="col-6">
              <h4>{data.data.title_en}</h4>
             <ReactQuill
-            value={data.data.description_en}
+            value={data?.data?.description_en}
             readOnly={true}
             theme={"bubble"}
             ></ReactQuill>

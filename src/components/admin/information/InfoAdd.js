@@ -40,7 +40,7 @@ const InfoAdd = () => {
         <label>Déscription en Français</label>
         <ReactQuill
         theme="snow" value={body_fr}
-        onChange={setBody_fr}
+        onChange={setBody_fr || ''}
         >
         </ReactQuill>
         </div>
@@ -53,7 +53,7 @@ const InfoAdd = () => {
         <label>Déscription en Anglais</label>
         <ReactQuill
         theme="snow" value={body_en}
-        onChange={setBody_en}
+        onChange={setBody_en || ''}
         >
         </ReactQuill>
         </div>
