@@ -92,7 +92,9 @@ const AjoutConenue = () => {
                         {groupe?.admin_contents && (<>
                             <ul className="list-group text-left">
                                 {groupe?.admin_contents.map((x, i) => {
-                                    return <li key={i} className="list-group-item d-flex space-between" >
+                                    return <li key={i} >
+                                    <div  className="list-group-item d-flex space-between">
+                                    
                                         <span>   {x.title}</span>
                                         <span title="Supprimer" onClick={() => removeElement(x.id)} >
                                             <ClearIcon size="small" sx={{
@@ -100,7 +102,6 @@ const AjoutConenue = () => {
                                                 marginLeft: '2px',
                                                 color: 'red'
                                         }} />
-                                           
                                         </span>
                                         <span title="Traduire en Anglais" onClick={() =>translateEnglish(x)}>
                                          <EditLocation size="small" sx={{
@@ -117,12 +118,15 @@ const AjoutConenue = () => {
                                         }}
                                         />
                                         </span>
-                                        {selectElement === x.id && <p>
+                                        </div>
+
+                                        {selectElement === x.id && <div>
                                         <p>
                                         <input type="text" value={title_en} onChange={(e) => setTitle_en(e.target.value) } />
                                         <button onClick={(e) => saveTraduction(e)}>Enregistrer</button>
                                         </p>
-                                        </p>}
+                                        </div>}
+                                        
                                     </li>
                                 })}
                             </ul>
