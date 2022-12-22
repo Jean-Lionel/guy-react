@@ -59,18 +59,11 @@ const AjoutConenue = () => {
     }
 
     const showElement = (e) => {
+        setTitle_en(e.title_en || "")
         setElId(e.id)
         setTitle(e.title)
         setDescription(e.description)
-        setDescription_en(e.description_en)
-        setTitle_en(e.title_en)
-    }
-
-    const translateEnglish = (e)=>{
-        setSelectElement(e.id)
-        setTitle_en("");
-        //alert("English tout les champs" + e.id)
-      
+        setDescription_en(e.description_en)        
     }
 
     const saveTraduction = (e) => {
@@ -116,13 +109,13 @@ const AjoutConenue = () => {
                                                 color: 'red'
                                         }} />
                                         </span>
-                                        <span title="Traduire en Anglais" onClick={() =>translateEnglish(x)}>
+                                        {/* <span title="Traduire en Anglais" onClick={() =>translateEnglish(x)}>
                                          <EditLocation size="small" sx={{
                                                 cursor: 'pointer',
                                                 marginLeft: '2px',
                                                 color: 'green'
                                         }} />
-                                        </span>
+                                        </span> */}
                                         <span title="Afficher" onClick={() => showElement(x)}>
                                             <VisibilityIcon sx={{
                                                 cursor: 'pointer',

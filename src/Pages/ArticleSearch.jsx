@@ -46,12 +46,12 @@ const ArticleSearch = () => {
             {contenu && (
               <Box>
                 <h4>{
-                  currentLanguage.code === 'en' ?
+                  (contenu.title_en && currentLanguage.code === 'en') ?
                     contenu.title_en : contenu.title
                 }</h4>
                 <ReactQuill
                   value={
-                    currentLanguage.code === 'en' ?
+                   (contenu.description_en &&  currentLanguage.code === 'en') ?
                       contenu.description_en : contenu.description
                   }
                   readOnly={true}

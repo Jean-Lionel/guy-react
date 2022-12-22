@@ -43,7 +43,8 @@ export default function ListeItemLeft() {
                 {element.admin_contents.map((x, y) => (
                   <Box key={y}
                     sx={{
-                      textAlign: 'left'
+                      textAlign: 'left',
+                    
                     }}
                   >
                     <Link to={"/article-search/"+x.id }>
