@@ -26,8 +26,6 @@ class App extends Component {
       </div>
     </Router>
   }
-
-
   onAppStart() {
     try {
       const managerRepo = new ManagerRepo();
