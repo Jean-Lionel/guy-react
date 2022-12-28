@@ -14,7 +14,7 @@ const HomeAccueil = () => {
     })
     useEffect(() => {
         if(data?.data){
-            setArticle(data?.data)
+            setArticle(data?.data?.data)
         }
     },[data])
     const body = {
@@ -27,21 +27,59 @@ const HomeAccueil = () => {
             en: article?.description_en,
         }
     };   
-    
+    const getResumeInfo = (strInputCode) => {
+    let cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
+
+    cleanText = cleanText.replaceAll("&nbsp;", " ");
+    cleanText = cleanText.replaceAll("&amp;", "&");
+    cleanText = cleanText.replaceAll("&quot;", '"');
+    cleanText = cleanText.replaceAll("&#039;", "'");
+    cleanText = cleanText.replaceAll("&oelig;", "oe");
+    cleanText = cleanText.replaceAll("&#xfc;", "ü");
+    cleanText = cleanText.replaceAll("&#xdf;", "ß");
+    cleanText = cleanText.replaceAll("&auml;", "ä");
+    cleanText = cleanText.replaceAll("&ouml;", "ö");
+    cleanText = cleanText.replaceAll("&uuml;", "ü");
+    cleanText = cleanText.replaceAll("&Auml;", "Ä");
+    cleanText = cleanText.replaceAll("&Ouml;", "Ö");
+    cleanText = cleanText.replaceAll("&Uuml;", "Ü");
+    cleanText = cleanText.replaceAll("&szlig;", "ß");
+
+    return cleanText.substring(0, 300) + " ....";
+  };
     return (<Box>
-        <h1>  {body.title[currentLanguage.code]}</h1>
-        <main style={{ textAlign: 'justify' }}>
-       {article && 
-        <ReactQuill
-        value={body.article[currentLanguage.code]}
-        readOnly= {true}
-        modules = {{
-            toolbar : false,
-            
-        }}
+        <main>
+        <h4>Informations</h4>
+        <div>
+     
+        {article.length &&
+        article.map(element => (<div className="row">
+     
+        <div className="col-md-12">
+                <h6 className="title-article">
+                  {currentLanguage.code === "en"
+                    ? element.title_en ?? element.title_fr
+                    : element.title_fr}
+                </h6>
+                <p style={{ textAlign: "justify" }}>
+                  {currentLanguage.code === "en"
+                    ? getResumeInfo(element.description_en ?? element.description_fr)
+                    : getResumeInfo(element.description_fr)}
+                   
+                </p>
+                <div style={{ textAlign: "right" }}>
+                  <a
+                    href={`/annonce-informations/${element.id}`}
+                    className="btn btn-link"
+                  >
+                    {currentLanguage.code === "en" ? "Read More" : "Lire plus"}
+                  </a>
+                </div>
+              </div>
         
-        />
+        </div>))
         }
+        </div>
         </main>
         
         </Box>);
