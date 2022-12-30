@@ -43,18 +43,21 @@ import TestComponent from "../Pages/TestComponent";
 import UserEdit from "../Pages/UserEdit";
 import WebAdmin from "../Pages/WebAdmin";
 import ProtectedRoute from "../utility/ProtectedRouter";
+import InformationDetail from "../components/web/InformationDetail";
 
 const RouteComponent = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/informations" component={Information} />
+       <Route exact path="/informations/:id" component={InformationDetail} />
       <Route exact path="/detail/:id" component={DetailBlog} />
       <Route exact path="/institution_edit/:id" component={EditInstution} />
       <Route exact path="/article-search/:id" component={ArticleSearch} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/detail" component={BasePage} />
       <Route exact path="/annonce-communique" component={AnnonceCommunique} />
+     
       <Route exact path="/annonce-communique/:id" component={AnnonceCommuniqueDetail} />
       <Route exact path="/online-service" component={OnlineService} />
       <Route exact path="/client-consultation-cotisation-afilier" component={ConsultationCotisation} />

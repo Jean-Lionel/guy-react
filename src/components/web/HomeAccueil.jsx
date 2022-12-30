@@ -69,7 +69,7 @@ const HomeAccueil = () => {
                 </p>
                 <div style={{ textAlign: "right" }}>
                   <a
-                    href={`/annonce-informations/${element.id}`}
+                    href={`/informations/${element.id}`}
                     className="btn btn-link"
                   >
                     {currentLanguage.code === "en" ? "Read More" : "Lire plus"}

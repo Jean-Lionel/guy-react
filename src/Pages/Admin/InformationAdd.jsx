@@ -7,7 +7,8 @@ const InformationAdd = () => {
     return ( <Admin>
                 <h1>Information</h1>
                 <InfoAdd/>
-                <InformationList/>
+             
+                <InformationList/> 
 
         </Admin> );
 }

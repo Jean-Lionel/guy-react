@@ -1,55 +1,55 @@
-import { Box } from "@mui/material";
 import { useEffect } from "react";
-import ReactQuill from "react-quill";
+import { useState } from "react";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
 
 const InformationList = () => {
-    const {data, refreshSearch} =useFetchDataWithPagination("informations");
-    const {submitData} = usePostData()
-
-    const deleteElement = (elem) => {
-        const resp = window.confirm("Are you sure you want to delete")
-        if(resp){
-            submitData('informations/'+elem ,null, 'DELETE');
-            refreshSearch()
+    const {data, refreshSearch}= useFetchDataWithPagination('informations')
+   const {submitData}  = usePostData()
+    
+    const [informations, setInformations] = useState(null)
+    
+    useEffect(() => {
+        if(data?.data){
+            setInformations(data.data.data)
         }
+    }, [data])
+    
+    const deleteELement = (el) => {
+        const resp = window.confirm('Are you sure you want to delete')
+        if(resp){
+            submitData("informations/"+el , {}, 'DELETE');
+            refreshSearch();
+        }
+        
     }
-    return (<Box
-            sx={{ 
-                 width: "95%",
-                margin: "auto", 
-            }}
-        >
-        {data?.data && <Box 
-        sx={{
+    return ( <>
+        
+    
+        {informations  && 
+            <div>
+                <table className="table table-striped" style={{textAlign: 'left'}}>
+                    <thead>
+                        <tr>
+                        <th>Français</th>
+                        <th>Anglais</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { informations.map(inf =><tr>
+                            <td>{inf.title_fr}</td>
+                            <td>{inf.title_en}</td>
+                            <td>
+                            <button onClick={()=>deleteELement(inf.id)} className="btn btn-danger">Supprimer</button>
+                            </td>
+                        </tr>)}
+                    </tbody>
+                </table>
 
-        }}
-        >
-            <div className="row">
-            <div className="col-6">
-            <h4>{data.data.title_fr}</h4>
-            <ReactQuill
-            value={data?.data?.description_fr}
-            readOnly={true}
-            theme={"bubble"}
-            ></ReactQuill>
-            <p>Français</p>
-            </div>
-            <div className="col-6">
-             <h4>{data.data.title_en}</h4>
-            <ReactQuill
-            value={data?.data?.description_en}
-            readOnly={true}
-            theme={"bubble"}
-            ></ReactQuill>
-            <p>Anglais</p>
-            </div>
-            </div>
-            <button className="btn btn-danger" onClick={() => deleteElement(data.data.id)} >Supprimer</button>
-            </Box>}
-            
-            </Box>  );
+              </div>
+        }
+            </> );
         }
         
         export default InformationList;
