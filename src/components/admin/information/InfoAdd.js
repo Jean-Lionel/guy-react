@@ -25,6 +25,8 @@ const InfoAdd = () => {
                     setBody_fr("")
                     setBody_en("")
                     setBody_en("")
+
+            window.location.reload();
         }
     }
     return ( <Box sx={{ m:2}}>

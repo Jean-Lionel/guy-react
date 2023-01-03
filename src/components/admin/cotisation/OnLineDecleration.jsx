@@ -29,7 +29,7 @@ const OnLineDecleration = () => {
     const history = useHistory();
 
     useEffect(() => {
-        setMois(date_declaration.getMonth())
+        setMois(date_declaration.getMonth() + 1)
         setAnnee(date_declaration.getFullYear())
     }, [date_declaration])
     useEffect(() => {
