@@ -29,7 +29,7 @@ const OnLineDecleration = () => {
     const history = useHistory();
 
     useEffect(() => {
-        setMois(date_declaration.getMonth() + 1)
+        setMois(date_declaration.getMonth() + 1 )
         setAnnee(date_declaration.getFullYear())
     }, [date_declaration])
     useEffect(() => {
@@ -64,9 +64,15 @@ const OnLineDecleration = () => {
             formData.append("file_name_2", file_name_2);
             formData.append("file_uploaded_2", file_uploaded_2);
             formData.append("institution_id", institution_id);
-            submitData("online_declaration_detaches", formData);
-
-            history.push("/message-sent")
+             submitData("online_declaration_detaches", formData);
+             history.push("/message-sent")
+           
+            // if(!error){
+            //     
+            // }else{
+            //     
+            // }
+           
 
         } else {
             alert("completez tout les champs")
