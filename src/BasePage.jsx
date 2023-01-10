@@ -5,12 +5,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './blog/Header';
 // import MainFeaturedPost from './blog/MainFeaturedPost';
-
 import Footer from './blog/Footer';
 import BaseLeftSideCard from './components/web/BaseLeftSideCard';
 
 //Connaître ONPR || Information || Nouvelles || Annonces & Communiqués || Contacts
-
 const theme = createTheme();
 
 export default function BasePage(props ) {
