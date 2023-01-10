@@ -204,14 +204,14 @@ const OnLineDecleration = () => {
                     </Grid>
                     <Grid item md={4}>
                         <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                            <TextField value={file_name_1}
-                                id="file_name_1" label="Titre du document II"
+                            <TextField value={file_name_2}
+                                id="file_name_2" label="Titre du document II"
                                 placeholder="ex : ..."
                                 onChange={e => setFile_name_2(e.target.value)}
                                 variant="standard" />
                         </FormControl>
                         <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                            <InputLabel htmlFor="file_uploaded_1"> Fichier attaches </InputLabel>
+                            <InputLabel htmlFor="file_uploaded_2"> Fichier attaches </InputLabel>
                             {
                                 file_uploaded_2?.name
                             }

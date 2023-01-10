@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ReactQuill from "react-quill";
 import { useSelector } from 'react-redux';
-import useFetchData from "../../utility/useFecthData";
+import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
 const HomeAccueil = () => {
     
-    const {data} = useFetchData('informations');
+    const {data,  paginate} = useFetchDataWithPagination('informations');
     const [article, setArticle] = useState("")
     const { currentLanguage } = useSelector((storeOf) => {
         return { currentLanguage: storeOf.nisys.currentLanguage };
@@ -79,6 +79,10 @@ const HomeAccueil = () => {
         
         </div>))
         }
+
+        <div>
+        { paginate() }
+        </div>
         </div>
         </main>
         
