@@ -33,8 +33,8 @@ const AnnonceListe = () => {
             <div className="col-md-8">
                 <h4> Liste des annonces </h4>
             </div>
-            <div className="col-md-4">
-                <Link to="/annonce-add">ajouter une annonce</Link>
+            <div className="offset-md-2 col-md-2">
+                <button><Link to="/annonce-add">ajouter une annonce</Link></button>
             </div>
         </div>
         <table className="table table-striped table-sm">
@@ -49,7 +49,9 @@ const AnnonceListe = () => {
 
             <tbody>
                 {annonces && annonces.map((annonce, index) => (
-                    <tr key={annonce.id}>
+                    <tr key={annonce.id} style={{
+                        textAlign: 'left'
+                    }}>
                         <td>{index + 1}</td>
                         <td>{annonce.title}</td>
                         <td className="d-flex flex-row">

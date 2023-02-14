@@ -54,20 +54,21 @@ const AddFormulaireDeclaration = () => {
         if (groupeId) {
             submitData("downloawddoc/" + groupeId, x, "PUT");
             setGroupeId(null)
+            refreshSearch();
         } else {
             submitData("downloawddoc", x, "POST");
+             refreshSearch();
         }
-       
         setTitle("")
         setGroupeId(null)
         refreshSearch();
-        
     }
 
     const deleteContenu = ({id}) => {
         const response = window.confirm("Vous êtes sûr de vouloir supprimer ? ")
         if (response) {
-            
+            submitData("file_declarations/" + id, null, "DELETE");
+            refreshSearch()
         }
     }
     return (<Admin>
@@ -110,18 +111,23 @@ const AddFormulaireDeclaration = () => {
                             {groupeFormulaire.map((item, index) => {
                                 return (
                                     <>
-                                    <tr key={item.id}>
+                                    <tr key={item.id}  style={{ 
+                                                            textAlign: 'left',
+                                                            
+                                                            }}>
                                         <td>{index + 1}</td>
                                             <td>{item.title}</td>
                                             <td>
                                                 <ul>
                                                     {item.documents && item.documents.map((doc) => (
-                                                        <li style={{ 
+                                                        <li
+                                                            style={{ 
                                                             textAlign: 'left',
                                                             display: 'flex',
                                                             justifyContent: "space-between",
                                                             gap: "3px",
-                                                                }}>
+                                                            }}
+                                                        >
                                                             <a href={doc.name}
                                                                 
                                                                 rel="noreferrer" target="_blank">{doc.title}</a>
