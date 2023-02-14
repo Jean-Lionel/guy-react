@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 //import usePostData from "../../../utility/usePostData";
 import axios from "axios"
 import useFetchData from "../../../utility/useFecthData";
-import { useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 const FormAddInstution = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
-  const [mobile, setMobile] = useState("XX");
+  const [mobile] = useState("XX");
   const [description, setDescription] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);

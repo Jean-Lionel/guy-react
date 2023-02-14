@@ -7,7 +7,6 @@ import ReactQuill from "react-quill";
 import usePostData from "../../utility/usePostData";
 import ClearIcon from '@mui/icons-material/Clear';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { EditLocation } from "@mui/icons-material";
 
 const AjoutConenue = () => {
     const { id } = useParams();

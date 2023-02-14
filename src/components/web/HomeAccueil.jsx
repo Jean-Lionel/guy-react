@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
-import ReactQuill from "react-quill";
 import { useSelector } from 'react-redux';
 import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
@@ -17,16 +16,16 @@ const HomeAccueil = () => {
             setArticle(data?.data?.data)
         }
     },[data])
-    const body = {
-        title: {
-            fr: article?.title_fr,
-            en: article?.title_en,
-        },
-        article: {
-            fr: article?.description_fr,
-            en: article?.description_en,
-        }
-    };   
+    // const body = {
+    //     title: {
+    //         fr: article?.title_fr,
+    //         en: article?.title_en,
+    //     },
+    //     article: {
+    //         fr: article?.description_fr,
+    //         en: article?.description_en,
+    //     }
+    // };   
     const getResumeInfo = (strInputCode) => {
     let cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
 

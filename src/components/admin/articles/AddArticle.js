@@ -9,7 +9,7 @@ const AddArticle = () => {
 
     const [title, setTitle] = useState("");
     const [bodyFr, setBodyFr] = useState("");
-    const [bodyEn, setBodyEn] = useState("");
+    const [bodyEn] = useState("");
     const [selectedFile, setSelectedFile] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     let history = useHistory();

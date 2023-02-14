@@ -7,7 +7,7 @@ import usePostData from "../../../utility/usePostData";
 
 const AddFormulaireDeclaration = () => {
     const [title, setTitle] = useState("");
-    const { error,  submitData } = usePostData();
+    const { error, submitData } = usePostData();
     const { data, isLoading, refreshSearch } = useFetchDataWithPagination("downloawddoc")
     const [groupeFormulaire, setgroupeFormulaire] = useState(null);
     const [groupeId, setGroupeId] = useState(null);
@@ -19,7 +19,7 @@ const AddFormulaireDeclaration = () => {
         if (data?.data) {
             setgroupeFormulaire(data?.data)
         }
-        return () => {   
+        return () => {
         };
     }, [data]);
 
@@ -31,7 +31,7 @@ const AddFormulaireDeclaration = () => {
     const uploadFile = (e) => {
         // alert(groupeId)
         e.preventDefault();
-       // alert('je suis cool')
+        // alert('je suis cool')
         const form = new FormData();
         form.append("file", selectedFile);
         form.append("title", titleFormulaire);
@@ -62,6 +62,13 @@ const AddFormulaireDeclaration = () => {
         setGroupeId(null)
         refreshSearch();
         
+    }
+
+    const deleteContenu = ({id}) => {
+        const response = window.confirm("Vous êtes sûr de vouloir supprimer ? ")
+        if (response) {
+            
+        }
     }
     return (<Admin>
         <Box sx={{
@@ -109,8 +116,18 @@ const AddFormulaireDeclaration = () => {
                                             <td>
                                                 <ul>
                                                     {item.documents && item.documents.map((doc) => (
-                                                        <li>
-                                                            <a href={doc.name} rel="noreferrer" target="_blank">{doc.title}</a>
+                                                        <li style={{ 
+                                                            textAlign: 'left',
+                                                            display: 'flex',
+                                                            justifyContent: "space-between",
+                                                            gap: "3px",
+                                                                }}>
+                                                            <a href={doc.name}
+                                                                
+                                                                rel="noreferrer" target="_blank">{doc.title}</a>
+                                                            <button
+                                                            onClick={() => deleteContenu(doc)}
+                                                            >X</button>
                                                         </li>
                                                     ))}
                                                 </ul>

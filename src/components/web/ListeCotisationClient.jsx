@@ -45,6 +45,7 @@ const ListeCotisationClient = () => {
         let somme = 0;
         data.map(item => {
             somme += item.points;
+            return {}
         })
         return somme;
     }

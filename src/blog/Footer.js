@@ -55,7 +55,7 @@ function Footer(props) {
           <div className="col-md-6" >
             <ul className="list-unstyled" style={{textAlign: 'right'}}>
               <li>E-mail : <a href="mailTO:onpr_burundi@onpr.bi">onpr_burundi@onpr.bi</a>
-                 <span> ou </span> <a href="mailTo:onpr_burundi@yahoo.fr">onpr_burundi@yahoo.fr</a> </li>
+                 </li>
               <li>Site web : <a href="http://www.onpr.bi">www.onpr.bi</a></li>
             </ul>
        

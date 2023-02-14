@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import axios from "axios";
 import nisys_store from "./logic/nisys_store";
 
-axios.defaults.baseURL = "http://app.onpr.bi/onpr_api/public/api";
+axios.defaults.baseURL = "https://app.onpr.bi/onpr_api/public/api";
 //axios.defaults.baseURL = "http://localhost:8000/api";
 //axios.defaults.baseURL = 'http://test.aiph.bi/api';
 //axios.defaults.baseURL = 'http://192.168.1.2:8000/api';

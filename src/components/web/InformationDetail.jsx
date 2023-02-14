@@ -27,16 +27,16 @@ const InformationDetail = () => {
             setArticle(data?.data)
         }
     },[data])
-    const body = {
-        title: {
-            fr: article?.title_fr,
-            en: article?.title_en,
-        },
-        article: {
-            fr: article?.description_fr,
-            en: article?.description_en,
-        }
-    };   
+    // const body = {
+    //     title: {
+    //         fr: article?.title_fr,
+    //         en: article?.title_en,
+    //     },
+    //     article: {
+    //         fr: article?.description_fr,
+    //         en: article?.description_en,
+    //     }
+    // };   
    
     return (<ThemeProvider theme={theme}>
       <CssBaseline />
