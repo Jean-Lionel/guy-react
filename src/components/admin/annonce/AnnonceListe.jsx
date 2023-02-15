@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
-
 const AnnonceListe = () => {
     const { data, isLoading, paginate, refreshSearch } = useFetchDataWithPagination("annonces");
     const [annonces, setAnnonces] = useState(null);
@@ -54,11 +53,13 @@ const AnnonceListe = () => {
                     }}>
                         <td>{index + 1}</td>
                         <td>{annonce.title}</td>
-                        <td className="d-flex flex-row">
-
+                        <td className="d-flex flex-row flex-gap-2">
                             <button className="btn btn-danger btn-block btn-sm ml-2" onClick={() => deleteAnnoce(annonce.id)}>Supprimer</button>
                             <Link to={'annonce-translate/' + annonce.id}  >
-                                <button className="btn btn-info btn-sm mr-2">Traduire en anglais</button>
+                                <button className="btn btn-info btn-sm mr-2">Traduire</button>
+                            </Link>
+                             <Link to={'annonce-translate/' + annonce.id}  >
+                                <button className="btn btn-info btn-sm mr-2">Modifier</button>
                             </Link>
                         </td>
                     </tr>
