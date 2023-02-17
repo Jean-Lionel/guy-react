@@ -22,11 +22,7 @@ export default function Blog() {
       <Container maxWidth="lg" sx={{ backgroundColor: 'rgba(0,200,255,0)'}}>
         <Header />
               <main>
-                   <Card sx={{ minWidth: 275, backgroundColor: 'green'}}>
-                      <CardContent>
-                          <CarsoulTest />
-                      </CardContent>
-                    </Card>
+                  <CarsoulTest />
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>

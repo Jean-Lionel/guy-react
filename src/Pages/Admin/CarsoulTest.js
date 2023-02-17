@@ -1,57 +1,44 @@
+import { Card, CardContent } from '@mui/material';
 import { Carousel } from '@sefailyasoz/react-carousel'
+import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 import "../../asset/carousel.css"
+import useFetchDataWithPagination from '../../utility/useFetchDataWithPagination';
 
 const CarsoulTest = () => {
+    const { data} = useFetchDataWithPagination("slides");
+    const [carouselData] = useState([])
 
-const CarouselData = [
-  {
-    headerText: null,
-    subText: 'Sub Text One',
-    image: 'https://picsum.photos/300/300',
-  },
-  {
-    headerText: 'Header Text Two',
-    subText: null,
-    image: 'https://picsum.photos/1200/800',
-  },
-  {
-    headerText: null,
-    subText: null,
-    image: 'https://picsum.photos/720/720',
-  },
-  {
-    headerText: 'Header Text Four',
-    subText: 'Sub Text Four',
-    image: 'https://picsum.photos/1920/1080',
-  },
-  {
-    headerText: 'Header Text Five',
-    subText: 'Sub Text Five',
-    image: 'https://picsum.photos/480/360',
-  },
-  {
-    headerText: 'Header Text 21',
-    subText: 'Sub Text Five',
-    image: 'https://picsum.photos/480/360',
-  },
-  {
-    headerText: 'Header Text 25',
-    subText: 'Sub Text 40',
-    image: 'https://picsum.photos/480/360',
-  },
-]
-  return    <Carousel
-              data={CarouselData}
-              autoPlay={true}
-              rightItem={<FaArrowRight />}
-              leftItem={<FaArrowLeft />}
-              animationDuration={2}
-              headerTextType="black"
-              subTextType="white"
-              size="normal"
-            />
+    useEffect(() => {
+        if (data?.data) {
+            const xElement = data?.data.data
+            console.log(xElement)
+            xElement.map(e => {
+                carouselData.push({
+                    headerText: e.title,
+                    subText:  e.title,
+                    image: e.image,
+                })
+                return {}
+            });
+      }
+    }, [data,carouselData])
+    
+    return <Card sx={{ minWidth: 275, backgroundColor: 'green'}}>
+        <CardContent>
+            <Carousel
+                data={carouselData}
+                autoPlay={true}
+                rightItem={<FaArrowRight />}
+                leftItem={<FaArrowLeft />}
+                animationDuration={2}
+                headerTextType="black"
+                subTextType="white"
+                size="normal"
+                />
+         </CardContent>
+  </Card>   
 }
 
 export default CarsoulTest
