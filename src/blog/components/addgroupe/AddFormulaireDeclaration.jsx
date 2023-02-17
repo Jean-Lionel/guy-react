@@ -113,7 +113,6 @@ const AddFormulaireDeclaration = () => {
                                     <>
                                     <tr key={item.id}  style={{ 
                                                             textAlign: 'left',
-                                                            
                                                             }}>
                                         <td>{index + 1}</td>
                                             <td>{item.title}</td>

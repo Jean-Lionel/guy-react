@@ -6,8 +6,8 @@ const InformationAdd = () => {
     
     return ( <Admin>
                 <h1>Information</h1>
-                <InfoAdd/>
-             
+                {/* <InfoAdd/>
+              */}
                 <InformationList/> 
 
         </Admin> );

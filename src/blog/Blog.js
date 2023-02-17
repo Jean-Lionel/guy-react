@@ -4,13 +4,15 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
+
 import Footer from './Footer';
 import LeftSideCard from './components/LeftSideCard';
 import RightSideCard from './components/RightSideCard';
 import GoogleMap from './components/GoogleMap';
 import YoutubeComponent from './components/YoutubeComponent';
 import ArticleInlineShow from './Articles/ArticleInlineShow';
+import CarsoulTest from '../Pages/Admin/CarsoulTest';
+import { Card, CardContent } from '@mui/material';
 //Connaître ONPR || Information || Nouvelles || Annonces & Communiqués || Contacts
 const theme = createTheme();
 export default function Blog() {
@@ -19,8 +21,12 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg" sx={{ backgroundColor: 'rgba(0,200,255,0)'}}>
         <Header />
-        <main>
-          <MainFeaturedPost />
+              <main>
+                   <Card sx={{ minWidth: 275, backgroundColor: 'green'}}>
+                      <CardContent>
+                          <CarsoulTest />
+                      </CardContent>
+                    </Card>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>

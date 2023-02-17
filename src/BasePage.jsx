@@ -31,9 +31,7 @@ export default function BasePage(props ) {
           <GoogleMap/> */}
         </main>
       </Container>
-      <Footer
-       
-      />
+      <Footer/>
     </ThemeProvider>
   );
 }
