@@ -2,17 +2,19 @@ import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
 import { useState } from "react";
 import usePostData from "../../../utility/usePostData";
 
-const ContactCreate = () => {
+const ContactCreate = (props) => {
     const [title_en, setTitle_en] = useState("");
     const [title_fr, setTitle_fr] = useState("");
     const [content_en, setContent_en] = useState("");
     const [content_fr, setContent_fr] = useState("");
     const { submitData} = usePostData();
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         submitData("contacts", {
             title_en,title_fr,content_en,content_fr
-        }, "POST");
+        });
+         props.setIsFinish(true)
     }
     return (<Box sx={{width: '99%'}}>
         <h6>Création des contacts</h6>
