@@ -1,38 +1,52 @@
 import { Box, Button, Input } from "@mui/material";
+import { useEffect } from "react";
 import { useState } from "react";
 import ReactQuill from "react-quill";
+import { Link, useParams } from "react-router-dom";
 import Admin from "../../../Pages/Admin";
+import useFetchData from "../../../utility/useFecthData";
 import usePostData from "../../../utility/usePostData";
 
 const UpdateInformation = (props) => {
+    let { id } = useParams();
+    const {data } = useFetchData('informations/'+id);
      const [title_en, setTitle_en] = useState("")
     const [title_fr, setTitle_fr] = useState("")
     const [body_fr, setBody_fr] = useState("");
     const [body_en, setBody_en] = useState("");
-    const { submitData} =usePostData();
+    const { submitData } = usePostData();
+
+    useEffect(() => {
+        if (data?.data) {
+            const info = data?.data;
+                setTitle_fr(info.title_fr)
+                setTitle_en(info.title_en)
+                setBody_fr(info.description_fr)
+                setBody_en(info.description_en)
+      }
+      return () => {
+        
+      }
+    }, [data])
+    
     
     const saveInformation = (e) => {
         e.preventDefault();
         if(title_en.length > 0 && body_fr.length > 0) {
-            submitData("informations", {
+            submitData("informations/"+id, {
+
                 title_en: title_en, 
                 description_fr: body_fr,
                 description_en: body_en,
                 title_fr: title_fr
-                })
-                    setTitle_fr("")
-                    setTitle_en("")
-                    setBody_fr("")
-                    setBody_en("")
-            setBody_en("")
-            
-            props.isFinish(true)
+                }, 'PUT')
+       
             // window.location.reload();
         }
     }
     return (<Admin>
-        <h5>Modification de l'information</h5>
-
+        <h5>Modification de l'information N° {id}</h5>
+      
         <Box sx={{ m:2}}>
         <form>
         
@@ -63,9 +77,13 @@ const UpdateInformation = (props) => {
         >
         </ReactQuill>
         </div>
-        </div>
-        
-        <Button variant="contained" onClick={(e) => saveInformation(e)}> Modifier</Button>
+                </div>
+                <Link to="/information">
+                    <Button>Retour
+                    </Button>
+                </Link>
+                <Button variant="contained" onClick={(e) => saveInformation(e)}> Modifier</Button>
+                
         </form>
         </Box> 
     </Admin>);
