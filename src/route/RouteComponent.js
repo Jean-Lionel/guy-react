@@ -45,6 +45,7 @@ import WebAdmin from "../Pages/WebAdmin";
 import ProtectedRoute from "../utility/ProtectedRouter";
 import InformationDetail from "../components/web/InformationDetail";
 import Contact from "../blog/Contact";
+import ContactList from "../components/admin/contacts/ContactList";
 
 const RouteComponent = () => {
   return (
@@ -67,6 +68,7 @@ const RouteComponent = () => {
       <Route exact path="/client-declaration" component={DeclarationFormulaire} />
       <ProtectedRoute exact path="/admin" component={Admin} />
       <ProtectedRoute exact path="/users" component={Users} />
+      <ProtectedRoute exact path="/contact-create" component={ContactList} />
       <ProtectedRoute exact path="/admin-article" component={Article} />
       <ProtectedRoute exact path="/admin-article-add" component={ArticleAdd} />
       <ProtectedRoute name="add_user" exact path="/admin-add-user" component={UserAdd} />

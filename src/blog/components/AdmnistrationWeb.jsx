@@ -5,6 +5,8 @@ import SlideshowIcon from '@mui/icons-material/Slideshow';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import ShareIcon from '@mui/icons-material/Share';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 const AdmnistrationWeb = () => {
     return (<Box>
@@ -27,7 +29,11 @@ const AdmnistrationWeb = () => {
                 <Link to="/annonce" className="ml-2 d-block"><ShareIcon />  Annonce</Link>
             </div>
             <div className="m-2">
-                <Link to="/information" className="ml-2 d-block">   Information</Link>
+                <Link to="/information" className="ml-2 d-block"> <NewspaperIcon/>  Information</Link>
+            </div>
+            <div className="m-2">
+                <Link to="/contact-create" className="ml-2 d-block">
+                  <AddIcCallIcon/>  Contact</Link>
             </div>
 
         </div>
