@@ -32,7 +32,7 @@ const ContactList = () => {
         refreshSearch()
     }
     const deleteContact = (id) => {
-        const confirm = window.confirm('Are you sure you want to delete')
+        const confirm = window.confirm('Are you sure you want to delete ?')
         
         if (confirm) {
             submitData("contacts/" + id, null, "DELETE"); 
