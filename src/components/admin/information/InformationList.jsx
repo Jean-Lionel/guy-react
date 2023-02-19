@@ -1,13 +1,16 @@
+import { Button } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
+import InfoAdd from "./InfoAdd";
 
 const InformationList = () => {
     const {data, refreshSearch}= useFetchDataWithPagination('informations')
    const {submitData}  = usePostData()
     
     const [informations, setInformations] = useState(null)
+    const [showForm, setShowForm] = useState(false)
     
     useEffect(() => {
         if(data?.data){
@@ -21,13 +24,21 @@ const InformationList = () => {
             submitData("informations/"+el , {}, 'DELETE');
             refreshSearch();
         }
-        
+    }
+    const showCreateForm = () => {
+        setShowForm(!showForm);
     }
     return ( <>
         
     
         {informations  && 
             <div>
+                {showForm && <InfoAdd />}
+                <div className="row">
+                    <div className="offset-10 col-md-2">
+                        <Button onClick={showCreateForm}>Ajouter</Button>
+                    </div>
+                </div>
                 <table className="table table-striped" style={{textAlign: 'left'}}>
                     <thead>
                         <tr>
