@@ -4,7 +4,7 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import usePostData from "../../../utility/usePostData";
 
-const InfoAdd = () => {
+const InfoAdd = (props) => {
     const [title_en, setTitle_en] = useState("")
     const [title_fr, setTitle_fr] = useState("")
     const [body_fr, setBody_fr] = useState("");
@@ -24,9 +24,10 @@ const InfoAdd = () => {
                     setTitle_en("")
                     setBody_fr("")
                     setBody_en("")
-                    setBody_en("")
-
-            window.location.reload();
+            setBody_en("")
+            
+            props.isFinish(true)
+            // window.location.reload();
         }
     }
     return ( <Box sx={{ m:2}}>

@@ -6,7 +6,7 @@ import usePostData from "../../../utility/usePostData";
 import InfoAdd from "./InfoAdd";
 
 const InformationList = () => {
-    const {data, refreshSearch}= useFetchDataWithPagination('informations')
+    const {data, refreshSearch, paginate} = useFetchDataWithPagination('informations')
    const {submitData}  = usePostData()
     
     const [informations, setInformations] = useState(null)
@@ -14,7 +14,7 @@ const InformationList = () => {
     
     useEffect(() => {
         if(data?.data){
-            setInformations(data.data.data)
+            setInformations(data?.data.data)
         }
     }, [data])
     
@@ -26,18 +26,22 @@ const InformationList = () => {
         }
     }
     const showCreateForm = () => {
+          refreshSearch();
         setShowForm(!showForm);
+    }
+    const finishSaving = (e) => {
+        showCreateForm();
     }
     return ( <>
         
-    
+    <div className="offset-10 col-md-2">
+                        <Button onClick={showCreateForm}>{ showForm ? 'Fermer' : 'Ajouter' }</Button>
+        </div>
+        {showForm && <InfoAdd isFinish={ finishSaving } />}
         {informations  && 
             <div>
-                {showForm && <InfoAdd />}
                 <div className="row">
-                    <div className="offset-10 col-md-2">
-                        <Button onClick={showCreateForm}>Ajouter</Button>
-                    </div>
+                    
                 </div>
                 <table className="table table-striped" style={{textAlign: 'left'}}>
                     <thead>
@@ -52,12 +56,13 @@ const InformationList = () => {
                             <td>{inf.title_fr}</td>
                             <td>{inf.title_en}</td>
                             <td>
-                            <button onClick={()=>deleteELement(inf.id)} className="btn btn-danger">Supprimer</button>
+                                <button onClick={() => deleteELement(inf.id)} className="btn btn-danger">Supprimer</button> 
+                                <Button>Modifier</Button>
                             </td>
                         </tr>)}
                     </tbody>
                 </table>
-
+                { paginate()}
               </div>
         }
             </> );
