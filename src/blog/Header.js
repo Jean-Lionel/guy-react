@@ -32,7 +32,7 @@ const sections = [
     title: {
       fr: 'Contacts',
       en: 'Contacts',
-    }, url: '#web-footer', isId: true
+    }, url: '/contacts'
   },
   {
     title: {

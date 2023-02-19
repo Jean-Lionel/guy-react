@@ -44,12 +44,14 @@ import UserEdit from "../Pages/UserEdit";
 import WebAdmin from "../Pages/WebAdmin";
 import ProtectedRoute from "../utility/ProtectedRouter";
 import InformationDetail from "../components/web/InformationDetail";
+import Contact from "../blog/Contact";
 
 const RouteComponent = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/informations" component={Information} />
+      <Route exact path="/contacts" component={Contact} />
        <Route exact path="/informations/:id" component={InformationDetail} />
       <Route exact path="/detail/:id" component={DetailBlog} />
       <Route exact path="/institution_edit/:id" component={EditInstution} />
