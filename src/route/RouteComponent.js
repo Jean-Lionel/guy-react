@@ -87,6 +87,7 @@ const RouteComponent = () => {
       <ProtectedRoute exact path="/add-user-to-institution/:id" component={AddUserToInstution} />
       <ProtectedRoute exact path="/show-detail-declaration/:id" component={DetailDeclaration} />
       <ProtectedRoute exact path="/edit-user/:id" component={UserEdit} />
+      <ProtectedRoute exact path="/update-information/:id" component={UserEdit} />
       <ProtectedRoute exact path="/ajouter-contenu/:id" component={AjoutConenue} />
       <ProtectedRoute exact path="/admin/articles/:id" component={ShowDetailArticle} />
       <ProtectedRoute exact path="/admin/articles/traductions/:id" component={TraduireArticle} />

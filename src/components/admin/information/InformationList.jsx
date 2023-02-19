@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useFetchDataWithPagination from "../../../utility/useFetchDataWithPagination";
 import usePostData from "../../../utility/usePostData";
 import InfoAdd from "./InfoAdd";
@@ -57,7 +58,9 @@ const InformationList = () => {
                             <td>{inf.title_en}</td>
                             <td>
                                 <button onClick={() => deleteELement(inf.id)} className="btn btn-danger">Supprimer</button> 
-                                <Button>Modifier</Button>
+                                <Link to={'update-information/' + inf.id}>
+                                    <Button>Modifier</Button>
+                                </Link>
                             </td>
                         </tr>)}
                     </tbody>
