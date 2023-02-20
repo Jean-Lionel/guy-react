@@ -96,8 +96,10 @@ const ArticleList = () => {
                                     </Link>
 
                                     <Link to={"/admin/articles/traductions/" + article.id} className="m-1">
-                                        Traduire en Anglais
+                                         Modifier
                                     </Link>
+
+                                  
 
                                 </td>
                             </tr>
