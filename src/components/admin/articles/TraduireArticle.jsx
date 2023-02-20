@@ -43,9 +43,9 @@ const TraduireArticle = () => {
         axios.put("articles/" + id,
             {
                 title_en: title_en,
-                title_fr: title,
+                title: title,
                 body_en: body_en,
-                body_fr: body,
+                body: body,
                 id: id,
             },
             {
