@@ -11,6 +11,7 @@ import HomeAccueil from '../components/web/HomeAccueil';
 import YoutubeComponent from '../blog/components/YoutubeComponent';
 import GoogleMap from '../blog/components/GoogleMap';
 import Footer from '../blog/Footer';
+import CarsoulTest from './Admin/CarsoulTest';
 
 //Connaître ONPR || Information || Nouvelles || Annonces & Communiqués || Contacts
 const theme = createTheme();
@@ -21,7 +22,7 @@ export default function Information() {
       <Container maxWidth="lg" sx={{ backgroundColor: 'rgba(0,200,255,0)'}}>
         <Header />
         <main>
-          <MainFeaturedPost />
+                 <CarsoulTest/>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>

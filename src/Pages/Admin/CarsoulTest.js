@@ -32,7 +32,7 @@ const CarsoulTest = () => {
                 autoPlay={true}
                 rightItem={<FaArrowRight />}
                 leftItem={<FaArrowLeft />}
-                animationDuration={2}
+                animationDuration={5}
                 headerTextType="black"
                 subTextType="white"
                 size="normal"
