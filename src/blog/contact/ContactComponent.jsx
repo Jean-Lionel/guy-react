@@ -1,10 +1,12 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemButton } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import useFetchData from "../../utility/useFecthData";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import { useSelector } from "react-redux";
+import ReactQuill from "react-quill";
+import './contact.css'
 
 const ContactComponent = () => {
     const { data: cotactData, isLoading } = useFetchData("contacts");
@@ -28,8 +30,7 @@ const ContactComponent = () => {
         { isLoading && <p>Waiting ...........</p>}
         <h1 className="text-center">
             {currentLanguage.code === 'en' ? ' To contact ONPR'  :' Pour contacter ONPR' }
-           
-           
+        
         </h1>
         <List>
             {contacts && contacts.map(contact => (
@@ -42,11 +43,22 @@ const ContactComponent = () => {
                                 currentLanguage.code === 'en' ? 
                             contact.title_en :  contact.title_fr}   </span>
                     </ListItemButton>
-                    <ListItemButton>
-                        <ListItemText primary={
-                               currentLanguage.code === 'en' ?
-                            contact.content_en :contact.content_fr } />
-                    </ListItemButton>
+                    
+                     
+                    <ReactQuill
+                      value={
+                        currentLanguage.code === "en"
+                          ? contact.content_en 
+                            ?  contact.content_en
+                            : contact.content_fr
+                          : contact.content_fr
+                      }
+                      readOnly={true}
+                      modules={{
+                        toolbar: false,
+                      }}
+                    />
+                   
           </ListItem>
                 
             ))}

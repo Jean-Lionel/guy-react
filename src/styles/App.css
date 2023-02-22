@@ -9,8 +9,7 @@ body{
     color: red;
 }
 
-.ql-editor{
-    min-height: 100px !important;
+.ql-editor {
     overflow: hidden;
     overflow-y: auto;
     overflow-x: auto;
