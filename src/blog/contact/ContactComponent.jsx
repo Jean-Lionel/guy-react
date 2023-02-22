@@ -34,7 +34,6 @@ const ContactComponent = () => {
         <List>
             {contacts && contacts.map(contact => (
                 <ListItem disablePadding>
-                    
                     <ListItemButton>
                         <TouchAppIcon/>
                         <ArrowForwardIcon/>

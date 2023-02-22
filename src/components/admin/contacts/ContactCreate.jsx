@@ -1,5 +1,6 @@
 import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
 import { useState } from "react";
+import ReactQuill from "react-quill";
 import usePostData from "../../../utility/usePostData";
 
 const ContactCreate = (props) => {
@@ -26,7 +27,8 @@ const ContactCreate = (props) => {
                 <Input id="title" value={title_fr}
                             required
                             onChange={(e) => (setTitle_fr(e.target.value))}
-                ></Input>
+                        ></Input>
+                
             </FormControl>
                 </div>
                 <div className="col-md-6">
@@ -42,20 +44,26 @@ const ContactCreate = (props) => {
             <div className="row">
                 <div className="col-md-6">
                      <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                <InputLabel htmlFor="content_fr"  >Contenue en Anglais</InputLabel>
-                <Input id="content_fr" value={content_fr}
-                            required
-                            onChange={(e) => (setContent_fr(e.target.value))}
-                ></Input>
+                        <InputLabel htmlFor="content_fr"  >Contenue en Anglais</InputLabel>
+                        
+                        <ReactQuill
+                        theme="snow" value={content_fr}
+                        onChange={setContent_fr}
+
+                    >
+                    </ReactQuill>
+                        
+        
             </FormControl>
                 </div>
                 <div className="col-md-6">
                       <FormControl fullWidth sx={{ m: 1 }} variant="standard">
                 <InputLabel htmlFor="content_en"  >Contenue en Anglais</InputLabel>
-                <Input id="content_en" value={content_en}
-                            required
-                            onChange={(e) => (setContent_en(e.target.value))}
-                ></Input>
+                 <ReactQuill
+                        theme="snow" value={content_en}
+                        onChange={setContent_en}
+                    >
+                    </ReactQuill>
             </FormControl>
                 </div>
             </div>
