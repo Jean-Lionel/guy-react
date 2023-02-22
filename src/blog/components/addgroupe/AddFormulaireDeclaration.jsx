@@ -9,7 +9,7 @@ const AddFormulaireDeclaration = () => {
     const [title, setTitle] = useState("");
     const { error, submitData } = usePostData();
     const { data, isLoading, refreshSearch } = useFetchDataWithPagination("downloawddoc")
-    const [groupeFormulaire, setgroupeFormulaire] = useState(null);
+    const [groupeFormulaire, setgroupeFormulaire] = useState([]);
     const [groupeId, setGroupeId] = useState(null);
     const [showUploadFormulaire, setShowUploadFormulaire] = useState(0)
     const [titleFormulaire, setTitleFormulaire] = useState("")
@@ -54,10 +54,8 @@ const AddFormulaireDeclaration = () => {
         if (groupeId) {
             submitData("downloawddoc/" + groupeId, x, "PUT");
             setGroupeId(null)
-            refreshSearch();
         } else {
             submitData("downloawddoc", x, "POST");
-             refreshSearch();
         }
         setTitle("")
         setGroupeId(null)
@@ -68,8 +66,8 @@ const AddFormulaireDeclaration = () => {
         const response = window.confirm("Vous êtes sûr de vouloir supprimer ? ")
         if (response) {
             submitData("file_declarations/" + id, null, "DELETE");
-            refreshSearch()
         }
+         refreshSearch()
     }
     return (<Admin>
         <Box sx={{

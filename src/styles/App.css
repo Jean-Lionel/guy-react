@@ -26,6 +26,15 @@ a{
   text-decoration: none;
 }
 
+.footer-link a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-link a:hover {
+    text-decoration: none;
+    color: red;
+}
 .title-article{
     font-size: 16px;
     font-weight: bold;

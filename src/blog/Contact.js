@@ -12,6 +12,7 @@ import GoogleMap from './components/GoogleMap';
 import YoutubeComponent from './components/YoutubeComponent';
 
 import ContactComponent from './contact/ContactComponent';
+import CarsoulTest from '../Pages/Admin/CarsoulTest';
 //Connaître ONPR || Information || Nouvelles || Annonces & Communiqués || Contacts
 const theme = createTheme();
 export default function Contact() {
@@ -21,7 +22,7 @@ export default function Contact() {
       <Container maxWidth="lg" sx={{ backgroundColor: 'rgba(0,200,255,0)'}}>
         <Header />
               <main>
-              
+              <CarsoulTest/>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>
