@@ -45,7 +45,7 @@ const AnnonceTrasuction = () => {
                 <div className="form-groupe">
                     <label className="text-left">Déscription</label>
                     <ReactQuill
-                        theme="snow" value={body}
+                        theme="snow" value={annonce?.data?.body}
                         onChange={setBody}>
 
                     </ReactQuill>

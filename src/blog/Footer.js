@@ -72,7 +72,7 @@ function Copyright() {
         <table width="245" border="0" cellspacing="0" cellpadding="0">
         <tbody><tr>
         <td colspan="2"><div align="center">
-        <table width="190" height="17" border="0" cellpadding="0" cellspacing="0">
+        <table width="190"  border="0" cellspacing="0" height="17"  cellpadding="0">
         <tbody><tr>
         <td width="168"><span class="style19">LIENS</span></td>
         </tr>
@@ -81,42 +81,53 @@ function Copyright() {
         </tr>
         <tr>
         <td width="12">&nbsp;</td>
-        <td width="233"><span class="style15"><a href="https://www.presidence.gov.bi" target="_blank"  >Présidence de la République</a> </span></td>
+        <td width="233"><span class="style15"><a href="https://www.presidence.gov.bi" 
+        style={{
+            color : 'white'
+        }}
+        >Présidence de la République</a> </span></td>
         </tr>
         <tr>
         <td>&nbsp;</td>
-        <td><span class="style15"><a href="http://www.vicepresidence2.gov.bi" target="_blank">2ème Vice-Présidence </a></span></td>
-        </tr>
-        <tr>
-        <td>&nbsp;</td>
-        <td><span class="style15"><a href="http://inss.gov.bi">INSS</a></span></td>
-        </tr>
-        <tr>
-        <td>&nbsp;</td>
-        <td><span class="style15"><a href="http://www.ecassa.org">ECASSA</a></span></td>
-        </tr>
-        <tr>
-        <td>&nbsp;</td>
-        <td><span class="style15"><a href="https://www.issa.int/fr">ISSA</a></span></td>
-        </tr>
-        <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        </tr>
-        </tbody></table>
-        </div></td>
-        </tr>
-        </tbody></table></td>
-        
-        </div>
-        </div>
-        <CssBaseline />
-        <Copyright />
-        </Container>
-        </Box>
-        );
-    }
-    
-    
-    export default Footer;
-    
+        <td><span class="style15"><a href="http://www.vicepresidence2.gov.bi"  style={{
+        color : 'white'
+    }}>2ème Vice-Présidence </a></span></td>
+    </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td><span class="style15"><a href="http://inss.gov.bi"  style={{
+    color : 'white'
+}}>INSS</a></span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><span class="style15"><a href="http://www.ecassa.org"  style={{
+color : 'white'
+}}>ECASSA</a></span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><span class="style15"><a href="https://www.issa.int/fr"  style={{
+color : 'white'
+}}>ISSA</a></span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table></td>
+
+</div>
+</div>
+<CssBaseline />
+<Copyright />
+</Container>
+</Box>
+);
+}
+
+
+export default Footer;
