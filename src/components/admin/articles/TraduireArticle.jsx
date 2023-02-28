@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios'
 import { useHistory, useParams } from "react-router-dom";
-import { Box, Alert, FormControl, Input, InputLabel, Button } from "@mui/material";
+import { Box, Alert, FormControl, Input, InputLabel, Button, FilledInput } from "@mui/material";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Admin from "../../../Pages/Admin";
@@ -9,7 +9,7 @@ import useFetchDataWithPagination from "../../../utility/useFetchDataWithPaginat
 import { useEffect } from "react";
 
 const TraduireArticle = () => {
-
+    const [selectedFile, setSelectedFile] = useState("")
     const [title_en, setTitle_en] = useState("");
     const [title, setTitle] = useState("");
     const [body_en, setBody_en] = useState("")
@@ -39,15 +39,16 @@ const TraduireArticle = () => {
         e.preventDefault();
         const token = localStorage.getItem("token")
         // data.append("image", selectedFile)
+          const data = new FormData()
+
+        data.append("title", title)
+        data.append("title_en", title_en)
+        data.append("body", body)
+        data.append("body_en", body_en)
+        data.append("image", selectedFile)
 
         axios.put("articles/" + id,
-            {
-                title_en: title_en,
-                title: title,
-                body_en: body_en,
-                body: body,
-                id: id,
-            },
+            data,
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -129,6 +130,15 @@ const TraduireArticle = () => {
                     </FormControl>
                         </div>
                     </div>
+
+                     <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+                    <FilledInput
+                        type="file"
+                        id="image"
+                        label="Image"
+                        onChange={(e) => (setSelectedFile(e.target.files[0]))}
+                    ></FilledInput>
+                </FormControl>
 
                    
 
