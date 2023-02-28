@@ -55,9 +55,7 @@ const AnnonceListe = () => {
                         <td>{annonce.title}</td>
                         <td className="d-flex flex-row flex-gap-2">
                             <button className="btn btn-danger btn-block btn-sm ml-2" onClick={() => deleteAnnoce(annonce.id)}>Supprimer</button>
-                            <Link to={'annonce-translate/' + annonce.id}  >
-                                <button className="btn btn-info btn-sm mr-2">Traduire</button>
-                            </Link>
+                           
                              <Link to={'annonce-translate/' + annonce.id}  >
                                 <button className="btn btn-info btn-sm mr-2">Modifier</button>
                             </Link>
