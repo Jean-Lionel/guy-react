@@ -28,7 +28,6 @@ const HomeAccueil = () => {
     // };   
     const getResumeInfo = (strInputCode) => {
     let cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
-
     cleanText = cleanText.replaceAll("&nbsp;", " ");
     cleanText = cleanText.replaceAll("&amp;", "&");
     cleanText = cleanText.replaceAll("&quot;", '"');
@@ -42,7 +41,8 @@ const HomeAccueil = () => {
     cleanText = cleanText.replaceAll("&Auml;", "Ä");
     cleanText = cleanText.replaceAll("&Ouml;", "Ö");
     cleanText = cleanText.replaceAll("&Uuml;", "Ü");
-    cleanText = cleanText.replaceAll("&szlig;", "ß");
+        cleanText = cleanText.replaceAll("&szlig;", "ß");
+    
 
     return cleanText.substring(0, 300) + " ....";
   };
@@ -51,7 +51,7 @@ const HomeAccueil = () => {
         <h4>Informations</h4>
         <div>
      
-        {article.length &&
+        {article.length >0 &&
         article.map(element => (<div className="row">
      
         <div className="col-md-12">

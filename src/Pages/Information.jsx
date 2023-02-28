@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../blog/Header';
-import MainFeaturedPost from '../blog/MainFeaturedPost';
 import LeftSideCard from '../blog/components/LeftSideCard';
 import RightSideCard from '../blog/components/RightSideCard';
 import HomeAccueil from '../components/web/HomeAccueil';
