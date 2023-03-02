@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 const data = [
   {
     title: "Consultation des cotisations pour les affiliés",
-    url: "/client-consultation-cotisation-afilier",
+    //url: "/client-consultation-cotisation-afilier",
+    url: "/login",
     icon: "",
   },
   {
     title: "Consultation des cotisations pour les détaches",
-    url: "/client-consultation-cotisation-detaches",
+   // url: "/client-consultation-cotisation-detaches",
+    url: "/login",
     icon: "",
   },
   {
