@@ -61,7 +61,6 @@ const RouteComponent = () => {
       <Route exact path="/login" component={Login} />
       <Route exact path="/detail" component={BasePage} />
       <Route exact path="/annonce-communique" component={AnnonceCommunique} />
-     
       <Route exact path="/annonce-communique/:id" component={AnnonceCommuniqueDetail} />
       <Route exact path="/online-service" component={OnlineService} />
       <Route exact path="/client-consultation-cotisation-afilier" component={ConsultationCotisation} />
