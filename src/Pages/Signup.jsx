@@ -41,6 +41,8 @@ export default function SignUp() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         //console.log(data);
+        setBackendError([])
+        setSuccesMessage('')
 
         if (data.get('c_password') !== data.get('password')) {
             setBackendError({
