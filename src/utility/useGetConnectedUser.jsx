@@ -14,11 +14,12 @@ const useGetConnectedUser = () => {
 
     const userConnected = {
         
-        isAdmin: () => (user?.role.name === "ADMINISTRATEUR"),
-        isRisqueProfessionnel: () => (user?.role.name === "RISQUE PROFESSIONELLE"),
-        isEmployeur: () => (user?.role.name === "EMPLOYEUR"),
-        isWebAdministrator: () => (user?.role.name === "ADMINISTRATEUR WEB"),
-        isChefRecouvrement: () => (user?.role.name === "CHEF RECOUVREMENT"),
+        isAdmin: () => (user?.role?.name === "ADMINISTRATEUR"),
+        isRisqueProfessionnel: () => (user?.role?.name === "RISQUE PROFESSIONELLE"),
+        isEmployeur: () => (user?.role?.name === "EMPLOYEUR"),
+        isWebAdministrator: () => (user?.role?.name === "ADMINISTRATEUR WEB"),
+        isChefRecouvrement: () => (user?.role?.name === "CHEF RECOUVREMENT"),
+        isMember: () => (user?.role?.name === "MEMBRE"),
         user:  user,
     }
 
