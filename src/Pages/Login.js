@@ -14,13 +14,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import {useState} from 'react';
 import Header from '../blog/Header';
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
 const theme = createTheme();
 
 export default function SignIn() {
- 
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -120,7 +122,9 @@ export default function SignIn() {
               onClick={handleSubmit}
             >
              Connexion
-            </Button>
+                          </Button>
+                          
+
 
             { error && (
                 <div>
@@ -132,18 +136,18 @@ export default function SignIn() {
                 <CircularProgress color="inherit" />
              </div>
           )}
-            {/* <Grid container>
+            <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link to="/register" variant="body2">
+                  {"S'enregistrer ? Sign Up"}
                 </Link>
               </Grid>
-            </Grid> */}
+            </Grid> 
           </Box>
         </Box>
       </Container>

@@ -47,6 +47,7 @@ import InformationDetail from "../components/web/InformationDetail";
 import Contact from "../blog/Contact";
 import ContactList from "../components/admin/contacts/ContactList";
 import UpdateInformation from "../components/admin/information/UpdateInformation";
+import SignIn from "../Pages/Signup";
 
 const RouteComponent = () => {
   return (
@@ -59,6 +60,7 @@ const RouteComponent = () => {
       <Route exact path="/institution_edit/:id" component={EditInstution} />
       <Route exact path="/article-search/:id" component={ArticleSearch} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={SignIn} />
       <Route exact path="/detail" component={BasePage} />
       <Route exact path="/annonce-communique" component={AnnonceCommunique} />
       <Route exact path="/annonce-communique/:id" component={AnnonceCommuniqueDetail} />

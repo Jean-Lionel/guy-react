@@ -5,24 +5,33 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import usePostData from '../utility/usePostData';
 
 
 const theme = createTheme();
 
 export default function SignUp() {
+
+    const {response, isLoading, error,finished,  submitData } = usePostData();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+      const data = new FormData(event.currentTarget);
+      //console.log(data);
+
+      submitData('saveMember', data);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
     });
   };
 
@@ -42,9 +51,9 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+          Idéntification
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -53,8 +62,9 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
-                  autoFocus
+                  label="First Name / Nom"
+                                  autoFocus
+                                  size="small"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -62,9 +72,10 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label="Last Name / Prénom"
                   name="lastName"
-                  autoComplete="family-name"
+                                  autoComplete="family-name"
+                                  size="small"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,13 +85,39 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
+                                  autoComplete="email"
+                                  size="small"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
+                  id="numero_matricule"
+                  label="Numéro Matricule"
+                  name="numero_matricule"
+                                  autoComplete="numero_matricule"
+                                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="telephone"
+                  label="Téléphone"
+                  name="telephone"
+                                  autoComplete="telephone"
+                                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                                  fullWidth
+                                  variant="outlined" 
+                                  size="small"
+                                  
                   name="password"
                   label="Password"
                   type="password"
@@ -91,7 +128,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label="Enregistrer vous pour recevoir vos informations"
                 />
               </Grid>
             </Grid>
@@ -105,8 +142,8 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link to="/login" variant="body2">
+                  Avez-vous déjà un compte ? Entre ici 
                 </Link>
               </Grid>
             </Grid>
