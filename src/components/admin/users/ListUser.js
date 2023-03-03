@@ -20,7 +20,7 @@ const ListUser = () => {
     useEffect(() => {
         
         if (x) {
-            const t = x.filter(d => !d?.role.name.toLowerCase().includes('employeur'))
+            const t = x.filter(d => !d?.role?.name.toLowerCase().includes('employeur'))
             setLlistUser(t) 
         }
         

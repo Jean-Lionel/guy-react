@@ -48,6 +48,7 @@ import Contact from "../blog/Contact";
 import ContactList from "../components/admin/contacts/ContactList";
 import UpdateInformation from "../components/admin/information/UpdateInformation";
 import SignIn from "../Pages/Signup";
+import ConsultationMembre from "../components/members/ConsultationMembre";
 
 const RouteComponent = () => {
   return (
@@ -87,6 +88,7 @@ const RouteComponent = () => {
       <ProtectedRoute exact path="/ricieved-declaration" component={RicievedDeclaration} />
       <ProtectedRoute exact path="/ricieved-message/:id" component={RecievedMessageDetail} />
       <ProtectedRoute exact path="/add-user-to-institution/:id" component={AddUserToInstution} />
+      <ProtectedRoute exact path="/my_cotisation" component={ConsultationMembre} />
       <ProtectedRoute exact path="/show-detail-declaration/:id" component={DetailDeclaration} />
       <ProtectedRoute exact path="/edit-user/:id" component={UserEdit} />
       <ProtectedRoute exact path="/update-information/:id" component={UpdateInformation} />

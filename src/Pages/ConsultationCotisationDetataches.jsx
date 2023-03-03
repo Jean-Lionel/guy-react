@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import BasePage from "../BasePage";
-import ListeCotisationClientDetaches from "../components/web/ListeCotisationClientDetaches";
+import ListeCotisationClientDetaches from "../components/members/ListeCotisationClientDetaches";
 
 const ConsultationCotisationDetataches = () => {
     

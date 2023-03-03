@@ -1,8 +1,10 @@
 import SearchBar from "material-ui-search-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Box, CssBaseline, Grid, LinearProgress } from "@mui/material";
 import DataTable from 'react-data-table-component';
+import useGetConnectedUser from "../../utility/useGetConnectedUser";
+import useFetchData from "../../utility/useFecthData";
 
 
 const columns = [
@@ -38,10 +40,17 @@ const ListeCotisationClientDetaches = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [matricule, setMatricule] = useState("");
-    const searchInformation = (e) => {
-        fetchData()
-    }
-
+    const { userConnected } = useGetConnectedUser();
+    
+    const {data : cotisation} = useFetchData('cotisation_detaches');
+    
+    useEffect(() => {
+      
+        if (cotisation?.data) {
+            setData(cotisation.data)
+        }
+    }, [cotisation])
+    
     const nombreTotal = () => {
         let somme = 0;
         data.map(item => {
@@ -53,30 +62,18 @@ const ListeCotisationClientDetaches = () => {
         return somme;
     }
 
-    const fetchData = async () => {
-        if (matricule === "") {
-            setError("Veuillez entrer un matricule");
-            return;
-        }
-        setLoading(true);
-        setError(null);
-        try {
-            const response = await axios.get(`cotisation_detaches/${matricule}`);
-            const json = await response.data;
-            setData(json);
-            if(json.length === 0){
-                setError("Aucun résultat");
-            }
-        } catch (error) {
-            setError(error);
-        }
-        setLoading(false);
-    };
+
 
   
-    return ( <div>
-         <SearchBar onChange={setMatricule} size="small" onRequestSearch={searchInformation} placeholder="Saisissez ici votre Numéro matricule ONPR" />
-        
+    return (<Box
+        sx={{
+            width: '90%',
+            margin: 'auto'
+    }}
+    >
+        {/* <SearchBar onChange={setMatricule} size="small" onRequestSearch={searchInformation} placeholder="Saisissez ici votre Numéro matricule ONPR" /> */}
+       
+      
         <Box>
             <h6>Liste des cotisations</h6>
         </Box>
@@ -126,7 +123,7 @@ const ListeCotisationClientDetaches = () => {
             </Box>
         )}
         </div>
-    </div> );
+    </Box> );
 }
  
 export default ListeCotisationClientDetaches;

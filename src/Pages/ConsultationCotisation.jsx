@@ -9,7 +9,7 @@ const ConsultationCotisation = () => {
             <Box>
                 <h1>Consultation de cotisation pour les affilies</h1>
                 <p>
-                    Onpr offre une opportunite de visualiser vos cotisation en ligne d'une façon simple
+                    Onpr offre une opportunité de visualiser vos cotisation en ligne d'une façon simple
                     et rapide.
                 </p>
                
