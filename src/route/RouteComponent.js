@@ -49,6 +49,7 @@ import ContactList from "../components/admin/contacts/ContactList";
 import UpdateInformation from "../components/admin/information/UpdateInformation";
 import SignIn from "../Pages/Signup";
 import ConsultationMembre from "../components/members/ConsultationMembre";
+import Profile from "../Pages/Profile";
 
 const RouteComponent = () => {
   return (
@@ -70,6 +71,7 @@ const RouteComponent = () => {
       <Route exact path="/client-consultation-cotisation-detaches" component={ConsultationCotisationDetataches} />
       <Route exact path="/client-declaration" component={DeclarationFormulaire} />
       <ProtectedRoute exact path="/admin" component={Admin} />
+      <ProtectedRoute exact path="/profiles" component={Profile} />
       <ProtectedRoute exact path="/users" component={Users} />
       <ProtectedRoute exact path="/contact-create" component={ContactList} />
       <ProtectedRoute exact path="/admin-article" component={Article} />

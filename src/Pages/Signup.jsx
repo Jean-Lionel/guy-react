@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import usePostData from '../utility/usePostData';
 import { useState } from 'react';
 import { Alert, LinearProgress } from '@mui/material';
+import Header from '../blog/Header';
 
 
 const theme = createTheme();
@@ -52,19 +53,18 @@ export default function SignUp() {
         } else {
            submitData('saveMember', data); 
         }
-        
         // console.log(response)
-        
         console.log('Error ',error)
     };
     
     return (
         <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
+             <Header/>
+            <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
         sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -109,19 +109,7 @@ export default function SignUp() {
         />
         
         </Grid>
-        <Grid item xs={12}>
-        <TextField
-        required
-        fullWidth
-        id="email"
-        label="Email Address"
-        name="email"
-        autoComplete="email"
-        size="small"
-        error={ backendError['email'] ? true : false}
-        helperText={ backendError['email']}
-        />
-        </Grid>
+    
         <Grid item xs={12}>
         <TextField
         required

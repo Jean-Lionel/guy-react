@@ -58,6 +58,7 @@ function LinkRoute({ route, handleCloseNavMenu }) {
             setAnchorElNav(event.currentTarget);
         };
         const handleOpenUserMenu = (event) => {
+           
             setAnchorElUser(event.currentTarget);
         };
         
@@ -261,12 +262,14 @@ function LinkRoute({ route, handleCloseNavMenu }) {
                                                                         open={Boolean(anchorElUser)}
                                                                         onClose={handleCloseUserMenu}
                                                                         >
-                                                                        {settings.map((setting) => (
-                                                                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                                                            <Typography textAlign="center">{setting}</Typography>
-                                                                            </MenuItem>
-                                                                            ))}
+                                                                       
                                                                             
+                                                                            <MenuItem>
+                                    <Link to="/profiles">
+                                        <Typography textAlign="center">Profile</Typography>
+                                    </Link>
+                                </MenuItem>
+                                
                                                                             <MenuItem onClick={handleLogoutUserMenu}>
                                                                             <Typography textAlign="center">Se Deconnecter</Typography>
                                                                             </MenuItem>

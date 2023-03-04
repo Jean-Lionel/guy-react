@@ -1,9 +1,6 @@
-import SearchBar from "material-ui-search-bar";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Alert, Box, CssBaseline, Grid, LinearProgress } from "@mui/material";
 import DataTable from 'react-data-table-component';
-import useGetConnectedUser from "../../utility/useGetConnectedUser";
 import useFetchData from "../../utility/useFecthData";
 
 
@@ -39,8 +36,6 @@ const ListeCotisationClientDetaches = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const [matricule, setMatricule] = useState("");
-    const { userConnected } = useGetConnectedUser();
     
     const {data : cotisation} = useFetchData('cotisation_detaches');
     

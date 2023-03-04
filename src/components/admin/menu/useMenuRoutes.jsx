@@ -57,11 +57,12 @@ const useMenuRoutes = () => {
     {
       name: {
         fr: "Consultation des cotisations",
-        en: "Declaration",
+        en: "Consultation",
       },
       path: "/my_cotisation",
       icon: <FlutterDashIcon />,
-      isMember: true,
+        isMember: true,
+      isAdmin: false,
     },
   ];
 
