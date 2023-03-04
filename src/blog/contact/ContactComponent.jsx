@@ -49,8 +49,6 @@ const ContactComponent = () => {
                       value={
                         currentLanguage.code === "en"
                           ? contact.content_en 
-                            ?  contact.content_en
-                            : contact.content_fr
                           : contact.content_fr
                       }
                       readOnly={true}

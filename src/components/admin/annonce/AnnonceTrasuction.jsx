@@ -45,19 +45,19 @@ const AnnonceTrasuction = () => {
         <div className="row">
             
         <div className="col-md-6">
-        <h5 className="text-center"> Français</h5>
+        <h5 className="text-center"> Anglais</h5>
         <Box sx={{
             width: '80%',
             margin: "auto"
         }}>
         
         <div className="form-groupe">
-        <label className="text-left">Titre : {annonce?.data?.title_en}</label>
+        <label className="text-left">Title : {annonce?.data?.title_en}</label>
         <input type="text" className="form-control" required value={title_en} onChange={(e) => { setTitle_en(e.target.value) }} placeholder="" />
         </div>
         
         <div className="form-groupe">
-        <label className="text-left">Déscription</label>
+        <label className="text-left">Description</label>
         <ReactQuill
         theme="snow" value={body_en}
         onChange={setbody_en}>
@@ -73,7 +73,7 @@ const AnnonceTrasuction = () => {
         </Box>
         </div>
         <div className="col-md-6">
-        <h5 className="text-center"> Anglais</h5>
+        <h5 className="text-center"> Français</h5>
         <Box sx={{
             width: '80%',
             margin: "auto"

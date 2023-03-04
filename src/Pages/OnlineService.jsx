@@ -31,8 +31,8 @@ const OnlineService = () => {
 
   const titre = {
     title: {
-      fr: " Quelques formulaire de déclaration pour ONPR",
-      en: "Some declaration forms for ONPR",
+      fr: "TELECHARGEMENTS",
+      en: "DOWNLOADS",
     },
   };
 

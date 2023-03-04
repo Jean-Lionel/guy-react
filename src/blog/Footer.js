@@ -59,7 +59,12 @@ function Copyright() {
             </li>
             <li>Site web : <a href="http://www.onpr.bi" style={{
             color: '#ffffff'
-        }}>www.onpr.bi</a></li>
+                                }}>www.onpr.bi</a></li>
+            <li>Web Mail : <a href="http://www.onpr.bi:2096" style={{
+            color: '#ffffff'
+                                }}>www.onpr.bi</a></li>
+                                
+            <li> </li>
         </ul>
         
         </div>
