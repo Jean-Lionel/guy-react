@@ -1,3 +1,4 @@
+import { textAlign } from "@mui/system";
 import { useSelector } from "react-redux";
 import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
@@ -47,7 +48,11 @@ const ArticleInlineShow = () => {
               </div>
 
               <div className={article.image ? "col-md-9" : "col-md-12"}>
-                <h6 className="title-article">
+                      <h6 className="title-article" style={
+                          {
+                              textAlign: 'justify'
+                          }
+                }>
                   {currentLanguage.code === "en"
                     ? article.title_en ?? article.title
                     : article.title}
