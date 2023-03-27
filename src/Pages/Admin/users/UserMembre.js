@@ -22,6 +22,16 @@ const UserMembre = () => {
         {isLoading && <p>Loading .........</p>}
         {error && JSON.stringify(error)}
 
+        <div className="row">
+            <div className="offset-md-5 col-md-6">
+                <input type="text" className="form-control" placeholder="Numero Matricule"/>
+            </div>
+
+            <div className="col-md-1">
+                <button className="btn btn-block btn-primary">Ok</button>
+            </div>
+        </div>
+
         <table className="table table-hover table-sm table-responsive ">
             <thead className="table-dark">
                 <tr>
