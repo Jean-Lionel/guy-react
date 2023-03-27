@@ -16,20 +16,16 @@ const ListUser = () => {
     const [searchQuery, setSearchQuery] = useState("");
     let [listUser, setLlistUser] = useState(null);
     let x = filterData(searchQuery, users?.data?.data);
-
     useEffect(() => {
-        
         if (x) {
             const t = x.filter(d => !d?.role?.name.toLowerCase().includes('employeur'))
             setLlistUser(t) 
         }
-        
         return () => {
         };
     },  [x]);
 
     const deleteUser = (id) => {
-       
         const check = Math.random().toString(36).slice(2, 7);
         const response = window.prompt("Etes vous sûr ? Tapez : " + check)
         if (response === check) {
@@ -46,10 +42,7 @@ const ListUser = () => {
         }else{
             searchIntoDatabase("users/search/" + searchQuery );
         }
-        
     }
-
-        
     return (<Box sx={{
         m: 1,
         width: "90%",
@@ -70,7 +63,10 @@ const ListUser = () => {
         </div>
        
         <div className="row">
-            <div className="col-md-6"></div>
+            <div className="col-md-6">
+           
+                <Link to="/users_admin">     <button>Les membres</button></Link>
+            </div>
             <div className="col-md-4">
                 <SearchBar setSearchQuery={setSearchQuery} handleSubmit={updateSearch} />
             </div>
