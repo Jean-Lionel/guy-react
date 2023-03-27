@@ -33,7 +33,7 @@ export default function CardBlog(props) {
        
       />
       <CardContent>
-        <Typography gutterBottom variant="body2" component="div">
+        <Typography gutterBottom variant="body2" component="div" style={{ textAlign: "justify" }}>
           {article.title}
         </Typography>
       </CardContent>

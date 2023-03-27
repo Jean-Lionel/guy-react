@@ -1,4 +1,3 @@
-import { textAlign } from "@mui/system";
 import { useSelector } from "react-redux";
 import useFetchDataWithPagination from "../../utility/useFetchDataWithPagination";
 
