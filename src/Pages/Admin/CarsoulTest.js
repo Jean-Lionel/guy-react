@@ -2,7 +2,8 @@ import { Card, CardContent } from '@mui/material';
 import { Carousel } from '@sefailyasoz/react-carousel'
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-
+import top from "../../asset/img/top.jpg"
+import bottom from "../../asset/img/bottom.jpg"
 import "../../asset/carousel.css"
 import useFetchDataWithPagination from '../../utility/useFetchDataWithPagination';
 
@@ -27,6 +28,7 @@ const CarsoulTest = () => {
     
     return <Card sx={{ minWidth: 275, backgroundColor: 'green'}}>
         <CardContent>
+            <img src={ top}  alt="ONPR"/>
             <Carousel
                 data={carouselData}
                 autoPlay={true}
@@ -36,7 +38,8 @@ const CarsoulTest = () => {
                 headerTextType="black"
                 subTextType="white"
                 size="normal"
-                />
+            />
+            <img src={ bottom} alt="ONPR"/>
          </CardContent>
   </Card>   
 }

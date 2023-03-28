@@ -127,7 +127,5 @@ export default function Header(props) {
       ))}
       <LanguageChanger />
       </Toolbar>
-      
-       
   </React.Fragment>
 }
