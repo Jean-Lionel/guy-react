@@ -6,6 +6,7 @@ import logo from "../asset/img/onpr_logo.jpg"
 import { Grid, Avatar } from '@mui/material';
 import LanguageChanger from '../components/language_changer/language_changer';
 import { useSelector } from 'react-redux';
+import { Box } from '@mui/system';
 
 const sections = [
   {
@@ -54,10 +55,12 @@ export default function Header(props) {
     return { currentLanguage: storeOf.nisys.currentLanguage };
   })
 
-  return <React.Fragment>
+    return <React.Fragment>
+      <Box className='red_line' sx={{ border: '5px solid red' }}>
+              <Box className='white_line' sx={{ border: '5px solid #fff' }}>
     <Toolbar sx={{ borderBottom: 1, borderColor: 'green',
      backgroundColor: 'green', color: 'green' }}>
-      <Grid container spacing={2}>
+                  <Grid container spacing={2}>
         <Grid item md={2} xs={2}>
           {/* <img src={logo} alt="Logo de ONPR"  style={{ height: "auto", width: "100px" }}/> */}
           <Avatar
@@ -80,7 +83,12 @@ export default function Header(props) {
         </Grid>
       </Grid>
 
-    </Toolbar>
+
+                </Toolbar>
+
+ </Box>
+          </Box>
+                
     <Toolbar
       component="nav"
       variant="dense"

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import navHeader from '../asset/img/navheader.jpg';
+// import navHeader from '../asset/img/navheader.jpg';
 import { CssBaseline } from '@mui/material';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import CallIcon from '@mui/icons-material/Call';
@@ -11,7 +11,7 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 function Copyright() {
     return (
         <Typography variant="body2" color="text.secondary" align="center">
-        <img src={navHeader}  alt="Bar de Footer" loading="lazy"  style={{ height: "auto", width: "100%" }}/>
+        {/* <img src={navHeader}  alt="Bar de Footer" loading="lazy"  style={{ height: "auto", width: "100%" }}/> */}
         {'Copyright © '}
         <Link color="inherit" href="https://onpr.bi/">
         ONPR 
@@ -52,7 +52,7 @@ function Copyright() {
             
             </div>
             <div className="col-md-4"  >
-            <ul className="list-unstyled" style={{textAlign: 'right'}}>
+            <ul className="list-unstyled" style={{textAlign: 'left'}}>
             <li>E-mail : <a href="mailTO:onpr_burundi@onpr.bi" style={{
                 color: '#ffffff'
             }}>onpr_burundi@onpr.bi</a>
