@@ -28,7 +28,7 @@ const CarsoulTest = () => {
     
     return <Card sx={{ minWidth: 275, backgroundColor: 'green'}}>
         <CardContent>
-            <img src={ top}  alt="ONPR"/>
+            <img src={top} alt="ONPR"  />
             <Carousel
                 data={carouselData}
                 autoPlay={true}

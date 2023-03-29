@@ -7,7 +7,7 @@ import Admin from "../../Admin";
 
 const UserMembre = () => {
     const [matricule, setMatricule] = useState("")
-    let { data: users, error, paginate, isLoading , refreshSearch ,searchIntoDatabase } = useFetchDataWithPagination('get_member/?matricule='+matricule)
+    let { data: users, error, paginate, isLoading , refreshSearch ,searchIntoDatabase } = useFetchDataWithPagination('get_member/'+ matricule)
     const { submitData } = usePostData()
     
     const [listUser, setListUser] = useState(null)
