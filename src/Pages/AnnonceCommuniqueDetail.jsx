@@ -8,6 +8,7 @@ import LeftSideCard from "../blog/components/LeftSideCard";
 import Footer from "../blog/Footer";
 import Header from "../blog/Header";
 import useFetchData from "../utility/useFecthData";
+import CarsoulTest from "./Admin/CarsoulTest";
 
 const AnnonceCommuniqueDetail = () => {
     const { id } = useParams();
@@ -36,7 +37,7 @@ const AnnonceCommuniqueDetail = () => {
          <Container maxWidth="lg">
             <Header />
             {isLoading && <LinearProgress color="success" />}
-
+               <CarsoulTest />
             <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>

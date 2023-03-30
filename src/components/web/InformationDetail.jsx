@@ -13,6 +13,7 @@ import RightSideCard from '../../blog/components/RightSideCard';
 import Footer from '../../blog/Footer';
 import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
+import CarsoulTest from '../../Pages/Admin/CarsoulTest';
 const theme = createTheme();
 
 const InformationDetail = () => {
@@ -41,9 +42,10 @@ const InformationDetail = () => {
     return (<ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg" sx={{ backgroundColor: 'rgba(0,200,255,0)'}}>
-        <Header />
+            <Header />
+            <CarsoulTest />
         <main>
-          <MainFeaturedPost />
+          
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
              <LeftSideCard/>

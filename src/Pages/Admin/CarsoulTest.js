@@ -2,8 +2,8 @@ import { Card, CardContent } from '@mui/material';
 import { Carousel } from '@sefailyasoz/react-carousel'
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-import top from "../../asset/img/top.jpg"
-import bottom from "../../asset/img/bottom.jpg"
+import top from "../../asset/img/navheader.png"
+import bottom from "../../asset/img/bottom.png"
 import "../../asset/carousel.css"
 import useFetchDataWithPagination from '../../utility/useFetchDataWithPagination';
 
