@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import MainFeaturedPost from "../blog/MainFeaturedPost";
 import { useSelector } from "react-redux";
+import CarsoulTest from "./Admin/CarsoulTest";
 
 const theme = createTheme();
 const ArticleSearch = () => {
@@ -33,9 +34,10 @@ const ArticleSearch = () => {
   return (<ThemeProvider theme={theme}>
     <CssBaseline />
     <Container maxWidth="lg">
-      <Header />
+          <Header />
+          <CarsoulTest />
       <main>
-        <MainFeaturedPost />
+       
 
         <Grid container spacing={2}>
           <Grid item xs={12} md={3}>

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import LeftSideCard from "../blog/components/LeftSideCard";
 import { useSelector } from "react-redux";
+import CarsoulTest from "./Admin/CarsoulTest";
 
 const DetailBlog = () => {
     const { id } = useParams();
@@ -32,7 +33,8 @@ const DetailBlog = () => {
     return (
         <Box>
         <Container maxWidth="lg">
-        <Header />
+                <Header />
+                 <CarsoulTest />
         {isLoading && <LinearProgress color="success" />}
         
         <Grid container spacing={2}>
